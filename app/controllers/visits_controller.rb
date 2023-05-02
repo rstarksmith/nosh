@@ -18,6 +18,13 @@ class VisitsController < ApplicationController
         visit.update(visit_params)
         render json: visit, status: :ok
 
+    #DELETE /visits/:id 
+    def destroy
+        visit = Visit.find(params[:id])
+        visit.destroy 
+        head :no_content
+    end
+
     private
 
     def visit_params 

@@ -24,4 +24,10 @@ class TrucksController < ApplicationController
     #     head :no_content
     # end
 
+    # private
+
+    # def truck_params 
+    #     params.permit(:name)
+    # end
+
 end
