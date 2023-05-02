@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2023_05_02_151255) do
     t.integer "rating"
     t.string "caption"
     t.boolean "private"
+    t.integer "user_id"
+    t.integer "truck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
