@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2023_05_02_172813) do
 
   create_table "trucks", force: :cascade do |t|
     t.string "name"
+    t.string "image"
     t.string "cuisine"
     t.string "city"
     t.string "state"
