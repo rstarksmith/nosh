@@ -2,7 +2,7 @@ class TrucksController < ApplicationController
 
     #GET /trucks
     def index 
-        trucks = Trucks.all 
+        trucks = Truck.all 
         render json: trucks, status: :ok
     end
 

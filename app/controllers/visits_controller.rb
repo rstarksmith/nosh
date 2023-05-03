@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
 
+
     #GET /visits
     def index 
         visits = Visit.all 
@@ -8,7 +9,7 @@ class VisitsController < ApplicationController
 
     #POST /visits
     def create 
-        visit = Visit.create(visit_params)
+        visit = Visit.create!(visit_params)
         render json: visit, status: :created
     end
 
@@ -17,6 +18,7 @@ class VisitsController < ApplicationController
         visit = Visit.find(params[:id])
         visit.update(visit_params)
         render json: visit, status: :ok
+    end
 
     #DELETE /visits/:id 
     def destroy
@@ -26,6 +28,8 @@ class VisitsController < ApplicationController
     end
 
     private
+
+    
 
     def visit_params 
         params.permit(:rating, :caption, :photo, :truck_id)
