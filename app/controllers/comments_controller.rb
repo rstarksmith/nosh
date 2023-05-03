@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :find_visit, only: [:update, :destroy]
+    # before_action :find_visit, only: [:update, :destroy]
 
     #POST /comments
     def create 
