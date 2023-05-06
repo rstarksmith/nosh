@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # skip_before_action :authorized, only: [:create]
+    # skip_before_action :authorized, only: [:create, :index]
 
     #GET /noshboard
     # this will only be visits that are not private and shared to community page 
@@ -10,17 +10,17 @@ class UsersController < ApplicationController
         render json: users, status: :ok
     end
 
-    #GET /auth
-    def show
-        render json: current_user, status: :ok
-    end
+    # #GET /auth
+    # def show
+    #     render json: current_user, status: :ok
+    # end
 
     #POST /signup
-    def create 
-        user = User.create!(user_params)
-        session[:user_id] = user.id
-        render json: user, status: :created
-    end
+    # def create 
+    #     user = User.create!(user_params)
+    #     session[:user_id] = user.id
+    #     render json: user, status: :created
+    # end
 
     # #PATCH /user/:id
     # def update

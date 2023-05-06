@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
     #POST /comments
     def create 
-        comment = 
+        
     end
 
     private
