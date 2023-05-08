@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all 
+
+
+
 
 james = User.create(username: "James", password: "1234", password_confirmation: "1234", tagline: "Good food. Good mood.")
 james.avatar.attach(
@@ -45,13 +47,6 @@ raya.avatar.attach(
     content_type: 'application/png'
 )
 
-# a = Visit.create(rating: 2, caption: "yum", private: false,
-# a.avatar.attach(
-#     io: File.open('./public/avatars/visit1.png'),
-#     filename: 'visit1.png',
-#     content_type: 'application/png'
-# )
-
 #fort worth
 t1 = Truck.create(name: "Leo's Churro Bar", image: "https://s3-media0.fl.yelpcdn.com/bphoto/_djD33Tt-SiBz3ejxmaVyg/o.jpg", cuisine: "dessert", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/leo-s-churro-bar-fort-worth?osq=food+truck")
 t2 = Truck.create(name: "The Beignet Bus", image: "https://s3-media0.fl.yelpcdn.com/bphoto/vS3gz3_RVjZ1K2usrO1nrg/o.jpg", cuisine: "dessert, donuts, coffee", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/the-beignet-bus-fort-worth-2?osq=food+truck")
@@ -73,14 +68,134 @@ t15 = Truck.create(name: "Tacos y Tortas El Gordo", image: "https://s3-media0.fl
 t16 = Truck.create(name: "Cowtown Dogs", image: "https://s3-media0.fl.yelpcdn.com/bphoto/zfI_Y4CkpbmrnJCgTZ3b4Q/o.jpg", cuisine: "Hot Dogs", city: "Dallas", state: "Texas", yelp: "https://www.yelp.com/biz/cowtown-dogs-dallas?osq=food+truck")
 
 #austin
-t17 = Truck.create(name: "Leo's Churro Bar", image: "https://s3-media0.fl.yelpcdn.com/bphoto/_djD33Tt-SiBz3ejxmaVyg/o.jpg", cuisine: "dessert", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/leo-s-churro-bar-fort-worth?osq=food+truck")
-t18 = Truck.create(name: "The Beignet Bus", image: "https://s3-media0.fl.yelpcdn.com/bphoto/vS3gz3_RVjZ1K2usrO1nrg/o.jpg", cuisine: "dessert, donuts, coffee", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/the-beignet-bus-fort-worth-2?osq=food+truck")
-t19 = Truck.create(name: "Ober Here", image: "https://s3-media0.fl.yelpcdn.com/bphoto/1T1nu1JW5K4YWVQLrkn-Ew/o.jpg", cuisine: "Filipino", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/leo-s-churro-bar-fort-worth?osq=food+truck")
-t20 = Truck.create(name: "Wily Wieners", image: "https://wilywieners.com/wp-content/uploads/sb-instagram-feed-images/298373328_474747844027275_7348088822834417695_n.webpfull.jpg", cuisine: "Hot Dogs", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/wily-wieners-fort-worth-3?osq=food+truck")
-t21 = Truck.create(name: "Holy Frijole", image: "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/274872019_5338167839526850_5450996678873743038_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=lGskDUpr0coAX-tepfI&_nc_ht=scontent-dfw5-2.xx&oh=00_AfASsdnEiqank35Y3yvjeArFIHXu4DiXnBsj8236rNAJtA&oe=645D9B0A", cuisine: "Tex-Mex, Mexican", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/holy-frijole-fort-worth?osq=food+truck")
-t22 = Truck.create(name: "Kelly's Onion Burgers", image: "https://s3-media0.fl.yelpcdn.com/bphoto/WhH3eo05Jb31SvZ7chdUfw/o.jpg", cuisine: "Burgers", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/kelly-s-onion-burgers-fort-worth?osq=food+truck")
-t23 = Truck.create(name: "Brix Barbecue", image: "https://s3-media0.fl.yelpcdn.com/bphoto/wzTbpOUV30i7u4nib7J5gw/o.jpg", cuisine: "Barbecue", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/brix-barbecue-fort-worth-2?osq=food+truck")
-t24 = Truck.create(name: "Primo's Tacos", image: "https://s3-media0.fl.yelpcdn.com/bphoto/_djD33Tt-SiBz3ejxmaVyg/o.jpg", cuisine: "Tacos, Mexican", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/primos-tacos-fort-worth?osq=food+truck")
+t17 = Truck.create(name: "Dee Dee", image: "https://scontent-dfw5-1.xx.fbcdn.net/v/t31.18172-8/13227255_744282445714263_2544912222355742839_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9267fe&_nc_ohc=jJKhx2Tr8k0AX8FrG_S&_nc_ht=scontent-dfw5-1.xx&oh=00_AfAADBxkPcOl7g1TXn1jlrkCjiPVRq7ILABTm9UBd1pN4w&oe=647FA2E1", cuisine: "Thai", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/dee-dee-austin-2?osq=Dee+dee")
+t18 = Truck.create(name: "Winston's Kitchen", image: "https://s3-media0.fl.yelpcdn.com/bphoto/quBQDl_GYOiCwWrF1mUHWA/o.jpg", cuisine: "Caribbean", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/winstons-kitchen-austin-3")
+t19 = Truck.create(name: "Shoyu Sugar", image: "https://s3-media0.fl.yelpcdn.com/bphoto/41crKh_m7GlvL5OeWbYu6Q/o.jpg", cuisine: "Barbeque, Hawaiian", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/shoyu-sugar-austin?osq=food+truck")
+t20 = Truck.create(name: "Leyla's Kitchen", image: "https://s3-media0.fl.yelpcdn.com/bphoto/gBgLKvEMtkW5sUKtUXAiUA/o.jpg", cuisine: "Lebanese, Mediterranean", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/leylas-kitchen-austin?osq=food+truck")
+t21 = Truck.create(name: "Cuantos Tacos", image: "https://s3-media0.fl.yelpcdn.com/bphoto/W5y_nDVRcsV93oE6JqurTw/o.jpg", cuisine: "Tacos, Mexican", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/cuantos-tacos-austin?osq=food+truck")
+t22 = Truck.create(name: "Golden Tiger", image: "https://scontent-dfw5-2.xx.fbcdn.net/v/t1.6435-9/94705409_2557926274455612_2603199091357777920_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9267fe&_nc_ohc=VYH6-Br6RJsAX9gVhRJ&_nc_ht=scontent-dfw5-2.xx&oh=00_AfBpeKbRtRxnpUyC_5IUydy3XusmrSKLZgbCRGtGcXNyfQ&oe=647F98DE", cuisine: "Comfort  Food, Sandwiches", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz_photos/golden-tiger-austin")
+t23 = Truck.create(name: "Namaste Austin", image: "https://s3-media0.fl.yelpcdn.com/bphoto/suLJDCnz79KmqJYakNB1KA/o.jpg", cuisine: "Indian", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/namaste-austin-austin?osq=food+truck")
+t24 = Truck.create(name: "Err Thing New Orleans", image: "https://s3-media0.fl.yelpcdn.com/bphoto/Hj84Ofdr9VcFS67wF83dQA/o.jpg", cuisine: "Seafood, Soul Food, Cajun", city: "Austin", state: "Texas", yelp: "https://www.yelp.com/biz/err-thing-new-orleans-austin-2?osq=food+truck")
+
+#houston
+t25 = Truck.create(name: "Oh My Gogi!", image: "https://s3-media0.fl.yelpcdn.com/bphoto/fhUjN7PK7iouk1wlBX9FyA/o.jpg", cuisine: "Korean", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/oh-my-gogi-houston?osq=food+truck")
+t26 = Truck.create(name: "Top Dawg HTX", image: "https://s3-media0.fl.yelpcdn.com/bphoto/CsN00On79BUl7rTXsT_mag/o.jpg", cuisine: "Hot Dogs", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/top-dawg-htx-sugarland?osq=food+truck")
+t27 = Truck.create(name: "K R A C K Kitchen", image: "https://s3-media0.fl.yelpcdn.com/bphoto/-Fnw0BRyXKOFNHCbc8QvYg/o.jpg", cuisine: "Cajun, Seafood", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/k-r-a-c-k-kitchen-houston-3?osq=food+truck")
+t28 = Truck.create(name: "Tacos Tierra Caliente", image: "https://s3-media0.fl.yelpcdn.com/bphoto/jgKGSpPn3dpgNUC6_A8sqg/o.jpg", cuisine: "Tacos", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/tacos-tierra-caliente-houston?osq=food+truck")
+t29 = Truck.create(name: "OMG Baked Potatoes", image: "https://s3-media0.fl.yelpcdn.com/bphoto/nVuG4-gieWo7vxjvKYeR_A/o.jpg", cuisine: "Soul Food", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/omg-baked-potatoes-houston?osq=food+truck")
+t30 = Truck.create(name: "The Taco King", image: "https://s3-media0.fl.yelpcdn.com/bphoto/2PKXqjUMttpztQyULvTSoQ/o.jpg", cuisine: "Tacos", city: "Houston", state: "Texas", yelp: "https://www.yelp.com/biz/the-taco-king-cypress?osq=food+truck")
+
+
+
+v1 = Visit.create(rating: 3, caption: "yum.", private: false, user_id: james.id, truck_id: t1.id )
+v1.photo.attach(
+    io: File.open('./public/photos/visit1.png'),
+    filename: 'visit1.png',
+    content_type: 'application/png'
+)
+v2 = Visit.create(rating: 3, caption: "This made my day", private: false, user_id: james.id, truck_id: t2.id )
+v2.photo.attach(
+    io: File.open('./public/photos/visit2.png'),
+    filename: 'visit2.png',
+    content_type: 'application/png'
+)
+v3 = Visit.create(rating: 2, caption: "Eggcellent", private: false, user_id: james.id, truck_id: t3.id )
+v3.photo.attach(
+    io: File.open('./public/photos/visit3.png'),
+    filename: 'visit3.png',
+    content_type: 'application/png'
+)
+v4 = Visit.create(rating: 2, caption: "hot diggity dawg today", private: false, user_id: james.id, truck_id: t4.id )
+v4.photo.attach(
+    io: File.open('./public/photos/visit4.png'),
+    filename: 'visit4.png',
+    content_type: 'application/png'
+)
+v5 = Visit.create(rating: 3, caption: "FRESH", private: true, user_id: james.id, truck_id: t5.id )
+v5.photo.attach(
+    io: File.open('./public/photos/visit5.png'),
+    filename: 'visit5.png',
+    content_type: 'application/png'
+)
+v6 = Visit.create(rating: 3, caption: "you had me at pickles", private: false, user_id: james.id, truck_id: t6.id )
+v6.photo.attach(
+    io: File.open('./public/photos/visit6.png'),
+    filename: 'visit6.png',
+    content_type: 'application/png'
+)
+v7 = Visit.create(rating: 3, caption: "I scream beary good", private: false, user_id: james.id, truck_id: t11.id )
+v7.photo.attach(
+    io: File.open('./public/photos/visit7.png'),
+    filename: 'visit7.png',
+    content_type: 'application/png'
+)
+v8 = Visit.create(rating: 1, caption: "Classic", private: false, user_id: james.id, truck_id: t16.id )
+v8.photo.attach(
+    io: File.open('./public/photos/visit8.png'),
+    filename: 'visit8.png',
+    content_type: 'application/png'
+)
+v9 = Visit.create(rating: 2, caption: "My idea of a good time, is a food truck stop", private: false, user_id: foodie.id, truck_id: t17.id )
+v9.photo.attach(
+    io: File.open('./public/photos/visit9.png'),
+    filename: 'visit9.png',
+    content_type: 'application/png'
+)
+v10 = Visit.create(rating: 2, caption: "Taco Tuesday", private: false, user_id: foodie.id, truck_id: t20.id )
+v10.photo.attach(
+    io: File.open('./public/photos/visit10.png'),
+    filename: 'visit10.png',
+    content_type: 'application/png'
+)
+v11 = Visit.create(rating: 3, caption: "Lunch Today", private: false, user_id: foodie.id, truck_id: t21.id )
+v11.photo.attach(
+    io: File.open('./public/photos/visit11.png'),
+    filename: 'visit11.png',
+    content_type: 'application/png'
+)
+v12 = Visit.create(rating: 2, caption: "Artwork on the truck was awesome, the food is pretty good too", private: false, user_id: jacobmunch.id, truck_id: t22.id )
+v12.photo.attach(
+    io: File.open('./public/photos/visit12.png'),
+    filename: 'visit12.png',
+    content_type: 'application/png'
+)
+v13 = Visit.create(rating: 2, caption: "It tastes better than it looks", private: false, user_id: jacobmunch.id, truck_id: t23.id )
+v13.photo.attach(
+    io: File.open('./public/photos/visit13.png'),
+    filename: 'visit13.png',
+    content_type: 'application/png'
+)
+v14 = Visit.create(rating: 3, caption: "REPEAT", private: false, user_id: jess.id, truck_id: t25.id )
+v14.photo.attach(
+    io: File.open('./public/photos/visit14.png'),
+    filename: 'visit14.png',
+    content_type: 'application/png'
+)
+v15 = Visit.create(rating: 3, caption: "Huge servings | Taste on point", private: true, user_id: jess.id, truck_id: t26.id )
+v15.photo.attach(
+    io: File.open('./public/photos/visit15.png'),
+    filename: 'visit15.png',
+    content_type: 'application/png'
+)
+v16 = Visit.create(rating: 3, caption: "Fresh.", private: false, user_id: raya.id, truck_id: t27.id )
+v16.photo.attach(
+    io: File.open('./public/photos/visit16.png'),
+    filename: 'visit16.png',
+    content_type: 'application/png'
+)
+v17 = Visit.create(rating: 1, caption: "Basic. But they were good.", private: false, user_id: burgerman.id, truck_id: t28.id )
+v17.photo.attach(
+    io: File.open('./public/photos/visit17.png'),
+    filename: 'visit17.png',
+    content_type: 'application/png'
+)
+
+c1 = Comment.create(reply: "I need this!!", visit_id: v7.id , user_id: jess.id)
+c2 = Comment.create(reply: "Me too, your picture is amazing!", visit_id: v7.id , user_id: raya.id)
+c3 = Comment.create(reply: "Wow, I need to try this place out pronto..", visit_id: v6.id , user_id: burgerman.id)
+c4 = Comment.create(reply: "Great shot!", visit_id: v14.id , user_id: james.id)
+c5 = Comment.create(reply: "This looks amazing, I need to stop by and try it out. Thanks for sharing!", visit_id: v12.id , user_id: burgerman.id)
+
 
 
 puts "Done Seeding"
