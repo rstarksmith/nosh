@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
     validates :reply, length: { in: 1..60 }
 
     belongs_to :visit
-    belongs_to :user 
+    belongs_to :user
 end

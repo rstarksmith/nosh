@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def profile 
-        render json: current_user, include: [ :favorites ]
+        render json: current_user, status: :ok
     end
 
     # POST /signup

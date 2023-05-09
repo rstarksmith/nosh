@@ -9,6 +9,7 @@ const TruckPage = () => {
 
         Maybe we can average ratings?
         Yelp icon for links
+        <button>add as favorite</button>
     </div>
   )
 }

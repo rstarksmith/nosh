@@ -26,7 +26,8 @@ function App() {
   }, []);
 
   const logInUser = (userObj) => {
-    setUser(userObj.user)
+    console.log(userObj)
+    setUser(userObj)
     setAvatar(userObj.avatar);
     navigate("/");
   };
@@ -51,7 +52,7 @@ function App() {
         <Route path="/" element={<Home user={user} avatar={avatar}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn logInUser={logInUser} />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile user={user}/>} />
         <Route path="/trucks" element={<Trucks />} />
         <Route path="/trucks/:id" element={<TruckPage />} />
         <Route path="/noshboard" element={<NoshBoard />} />

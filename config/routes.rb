@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   
   resources :favorites, only: [:index, :create, :destroy]
   
-  # resources :visits, except: [:index, :show] do
-  #   resources :comments, only: [:index, :destroy]
-  # end 
+  resources :visits, except: [:index, :show] do
+    resources :comments, only: [:index, :destroy]
+  end 
 
-  resources :visits, only: [:create, :update, :destroy]
-  resources :comments, only: [:index, :destroy]
+  # resources :visits, only: [:create, :update, :destroy]
+  # resources :comments, only: [:index, :destroy]
   
   resources :trucks, only: [:index, :show]
   # get "/trucks/:town", to: "trucks#local"

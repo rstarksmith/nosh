@@ -1,19 +1,19 @@
 
 
-const Home = ({ user, avatar }) => {
+const Home = ({ user }) => {
 
-   console.log(avatar);
+ 
 
-  if (!user || !avatar) return <div>loading..</div>;
+  // if (!user) return <div>loading..</div>;
   
   return (
     <div>
-     
-      {user.username}
+      {/* {user.username} */}
+
       <img
-      src={avatar}
-      alt="user avatar" />
-      this is the home page
+      src=""
+      alt="home infographic" />
+      
     </div>
   );
 }
