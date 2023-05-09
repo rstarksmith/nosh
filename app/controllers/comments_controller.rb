@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
     # before_action :find_visit, only: [:update, :destroy]
-
+    
+    def index 
+        comments = Comment.all
+        render json: comments, status: :ok
+    end
+    
     #POST /comments
     def create 
         

@@ -7,8 +7,8 @@ class TrucksController < ApplicationController
     end
 
     # do I want custom routes for cities?
-    #GET /trucks/fortworth
-    # def fortworth
+    #GET /trucks/:town
+    # def local
     #     trucks = 
     # end
 

@@ -2,7 +2,9 @@
 
 const TruckList = () => {
   return (
-    <div>TruckList</div>
+    <div>TruckList
+        
+    </div>
   )
 }
 

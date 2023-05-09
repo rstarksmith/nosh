@@ -2,8 +2,13 @@
 
 const FoodTrucks = () => {
   return (
-    <div>FoodTrucks</div>
-  )
+    <div>
+      <button>Fort Worth</button>
+      <button>Dallas</button>
+      <button>Austin</button>
+      <button>Houston</button>
+    </div>
+  );
 }
 
 export default FoodTrucks
