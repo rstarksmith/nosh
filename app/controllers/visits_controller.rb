@@ -1,10 +1,10 @@
 class VisitsController < ApplicationController
     
 
-    #GET /noshboard
-     # this will only be visits that are not private and shared to community page 
+    # this will only be visits that are not private and shared to community page 
     # would like them to only display 20 or so at a time
     # skip before action to display visits on home page 
+    #GET /noshboard
     def index 
         visits = Visit.all 
         render json: visits, status: :ok
@@ -34,6 +34,6 @@ class VisitsController < ApplicationController
 
     
     def visit_params 
-        params.permit(:rating, :caption, :photo, :truck_id)
+        params.permit(:rating, :caption, :photo, :truck_id, :photo)
     end
 end

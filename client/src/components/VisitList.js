@@ -1,7 +1,9 @@
+import VisitCard from "./VisitCard"
+
 
 const VisitList = () => {
   return (
-    <div>VisitList</div>
+    <div>maps through current users visit <VisitCard /></div>
   )
 }
 

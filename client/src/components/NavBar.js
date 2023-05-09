@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ logOut }) => {
+
   return (
     <div>
       <ul>
@@ -19,7 +20,14 @@ const NavBar = () => {
         <li>
           <NavLink to="/noshboard">Nosh Board</NavLink>
         </li>
-        <NavLink to="/signin">signin</NavLink>
+        <li>
+          <NavLink to="/signin">signin</NavLink>
+        </li>
+        <li>
+          <NavLink to="/signup">signup</NavLink>
+        </li>
+          <button onClick={logOut}>logout</button>
+       
       </ul>
     </div>
   );

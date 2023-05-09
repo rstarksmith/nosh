@@ -7,6 +7,7 @@ const FoodTrucks = () => {
       <button>Dallas</button>
       <button>Austin</button>
       <button>Houston</button>
+      filter by cuisine? 
     </div>
   );
 }

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get "/noshboard", to: "visits#index"
   get "/auth", to: "users#show"
+  get "profile", to: "users#profile"
   post "/signup", to: "users#create"
   delete "/closeaccount", to: "users#destroy"
   post "/signin", to: "sessions#create"

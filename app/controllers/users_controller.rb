@@ -12,6 +12,10 @@ class UsersController < ApplicationController
         render json: current_user, status: :ok
     end
 
+    def profile 
+        render json: current_user, include: [ :favorites ]
+    end
+
     # POST /signup
     def create 
         user = User.create!(user_params)
