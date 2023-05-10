@@ -10,15 +10,7 @@ const VisitCard = ({ visit }) => {
   const visitComments = visit.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)
   
   if (!visit) return <div>loading</div>;
- {
-   /* {visit.created_at} */
- }
- {
-   /* {visit.comments.map should I do comment card?} */
- }
- {
-   /* option to delete and edit card, when clicked links to TruckPage */
- }
+ 
 
   return (
     <div className="card">

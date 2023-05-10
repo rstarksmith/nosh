@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   # resources :comments, only: [:index, :destroy]
   
   resources :trucks, only: [:index, :show]
-  # get "/trucks/:town", to: "trucks#local"
 
   get "/noshboard", to: "visits#index"
   get "/auth", to: "users#show"

@@ -1,32 +1,33 @@
-
+import { useState, useEffect } from "react";
+import TruckList from '../components/TruckList'
 
 const FoodTrucks = () => {
+  const [trucks, setTrucks] = useState([]);
+  const [error, setError] = useState(false)
 
-  const fortWorth = () => {
-
-  }
-
-  const fetchTrucks = (e) => {
-    e.preventDefault()
-  }
+  useEffect(() => {
+     fetch("/trucks").then((resp) => {
+       if (resp.ok) {
+         resp.json().then((truckData) => setTrucks(truckData));
+       } else {
+         resp.json().then((data) => setError(data.error));
+       }
+     });
+  }, []);
 
 
   return (
     <div>
-      <img
-      src=""
-      alt="fort worth"
-      onClick={fetchTrucks}
-        />
-      
-      <button>Dallas</button>
+      <button>Fort Worth</button>
+      <button >Dallas</button>
       <button>Austin</button>
       <button>Houston</button>
       <button>All</button>
-      {/* filter by cuisine?
-      maybe on page load display 10 random trucks? */}
+      <div>
+        <TruckList trucks={trucks} />
+      </div>
     </div>
   );
-}
+};
 
-export default FoodTrucks
+export default FoodTrucks;

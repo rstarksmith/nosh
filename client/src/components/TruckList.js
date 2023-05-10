@@ -1,9 +1,12 @@
+import TruckCard from "./TruckCard";
 
+const TruckList = ({ trucks }) => {
 
-const TruckList = () => {
+  const displayTrucks = trucks.map((truck) => <TruckCard key={truck.id} truck={truck} />)
+   
   return (
-    <div>TruckList
-        
+    <div>
+      {displayTrucks}   
     </div>
   )
 }

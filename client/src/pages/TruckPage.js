@@ -1,6 +1,7 @@
 
-
 const TruckPage = () => {
+  
+
   return (
     <div>
         This is one Truck, I got here from the truckcard or from the visitcard

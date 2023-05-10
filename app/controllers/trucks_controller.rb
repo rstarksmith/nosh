@@ -6,12 +6,6 @@ class TrucksController < ApplicationController
         render json: trucks, status: :ok
     end
 
-    # do I want custom routes for cities?
-    #GET /trucks/:town
-    # def local
-    #     trucks = 
-    # end
-
     #GET /trucks/:id
     def show 
         truck = Truck.find(params[:id])
