@@ -22,10 +22,12 @@ const Profile = ({ user }) => {
 
   return (
     <div>
-      <img src={user.avatar} alt="avatar" />
+      <img src={user.avatar} alt="avatar" className="avatar" />
       <h2>{user.username}</h2>
       <h3>{user.tagline}</h3>
-      <div>{displayUserVisits}</div>
+      <ul className="cards">
+      {displayUserVisits}
+      </ul>
       Pofile displays my visits and my favorites, my avatar I can see and edit
       everything, others can not view this page but they can see my visits on
       the board and truck page

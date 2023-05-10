@@ -1,13 +1,30 @@
 
 
 const FoodTrucks = () => {
+
+  const fortWorth = () => {
+
+  }
+
+  const fetchTrucks = (e) => {
+    e.preventDefault()
+  }
+
+
   return (
     <div>
-      <button>Fort Worth</button>
+      <img
+      src=""
+      alt="fort worth"
+      onClick={fetchTrucks}
+        />
+      
       <button>Dallas</button>
       <button>Austin</button>
       <button>Houston</button>
-      filter by cuisine? 
+      <button>All</button>
+      {/* filter by cuisine?
+      maybe on page load display 10 random trucks? */}
     </div>
   );
 }
