@@ -25,7 +25,7 @@ const FoodTrucks = () => {
       <button>Houston</button>
       <button>All</button>
       search bar
-      <div>
+      <div className="truck-card-container">
         <TruckList trucks={trucks} />
       </div>
     </div>

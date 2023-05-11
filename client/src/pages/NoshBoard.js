@@ -15,11 +15,20 @@ const NoshBoard = () => {
      });
    }, []);
 
+   
+
    if (!visits) return <div>loading..</div>
+
+   const removeVisit = (deletedVisit) => {
+    const reviseVisits = visits.filter(
+      (visit) => visit.id !== deletedVisit.id
+    );
+    setVisits(reviseVisits);
+   }
   
   return (
-    <div>
-      <VisitList visits={visits} />
+    <div className="card-container">
+      <VisitList removeVisit={removeVisit} visits={visits} />
     </div>
   );
 }

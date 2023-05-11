@@ -1,17 +1,15 @@
 import VisitCard from "./VisitCard"
 
-const VisitList = ({ visits }) => {
+const VisitList = ({ visits, removeVisit }) => {
 
-    const displayVisits = visits.map((visit) => (<VisitCard key={visit.id} visit={visit} />));
+    const displayVisits = visits.map((visit) => (<VisitCard key={visit.id}  removeVisit={removeVisit} visit={visit} />));
 
     // if (!visits) return <div>Loading...</div>
     
     return (
-      <div>
-        <ul className="cards">
-            {displayVisits}
-        </ul>
-      </div>
+      <>
+        {displayVisits}
+      </>
     );
 }
 

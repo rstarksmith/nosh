@@ -1,12 +1,9 @@
 class VisitsController < ApplicationController
-    
+    before_action :find_visit, :authorize_owner, only: [:update, :destroy]
 
-    # this will only be visits that are not private and shared to community page 
-    # would like them to only display 20 or so at a time
-    # skip before action to display visits on home page 
     #GET /noshboard
     def index 
-        visits = Visit.all.shuffle.sample(9)
+        visits = Visit.all
         render json: visits, status: :ok
     end
 
@@ -18,22 +15,28 @@ class VisitsController < ApplicationController
 
     #PATCH /visits/:id 
     def update 
-        visit = Visit.find(params[:id])
-        visit.update(visit_params)
+        @visit.update(visit_params)
         render json: visit, status: :ok
     end
 
     #DELETE /visits/:id 
     def destroy
-        visit = Visit.find(params[:id])
-        visit.destroy 
+        @visit.destroy 
         head :no_content
     end
 
     private
 
-    
+    def find_visit
+        @visit = Visit.find(params[:id])
+    end
+
     def visit_params 
         params.permit(:rating, :caption, :photo, :truck_id, :photo)
+    end
+
+    #auth for patch/delete visit
+    def authorize_owner
+       render json: { error: "Not Authorized" }, status: :unauthorized unless @visit.user_id == current_user.id
     end
 end

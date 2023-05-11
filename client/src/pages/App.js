@@ -44,6 +44,12 @@ function App() {
     navigate("/");
   };
 
+   const deleteVisit = (deletedVisit) => {
+     const editedVisits = user.visits.filter(
+       (visit) => visit.id !== deletedVisit.id
+     );
+     setUser((prevState) => ({ ...prevState, visits: editedVisits }));
+   };
 
   return (
     <>
@@ -52,7 +58,7 @@ function App() {
         <Route path="/" element={<Home user={user} avatar={avatar}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn logInUser={logInUser} />} />
-        <Route path="/profile" element={<Profile user={user}/>} />
+        <Route path="/profile" element={<Profile user={user} deleteVisit={deleteVisit}/>} />
         <Route path="/trucks" element={<Trucks />} />
         <Route path="/trucks/:id" element={<TruckPage user={user} />} />
         <Route path="/noshboard" element={<NoshBoard />} />
