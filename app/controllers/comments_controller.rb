@@ -1,24 +1,34 @@
 class CommentsController < ApplicationController
-    # before_action :find_visit, only: [:update, :destroy]
+    before_action :find_comment, only: :destroy
     
-    def index 
-        comments = Comment.all
-        render json: comments, status: :ok
-    end
-    
-    #POST /comments
+  
+    #POST /visits/:visit_id/comments
     def create 
-        
+        comment = current_user.comments.create!(comment_params)
+        render json: comment, status: :created
+    end
+
+    #DELETE /comments/:id
+    def destroy 
+        @comment.destroy
+        head :no_content
     end
 
     private
 
-    def find_visit
-        @visit = current_user.visits.find(params[:id])
+    def find_comment
+        @comment = visits.comments.find(params[:id])
     end
 
+    def comment_params 
+        params.permit(:reply, :visit_id)
+    end
 
-
+    #auth for delete comment
+    def authorize_delete
+       render json: { error: "Not Authorized" }, status: :unauthorized unless @comment.user_id == current_user.id
+    #    render json: { error: "Not Authorized" }, status: :unauthorized unless @visit.user_id || comment.user_id == current_user.id
+    end
 
 
 end

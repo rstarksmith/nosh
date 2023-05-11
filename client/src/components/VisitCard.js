@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import VisitEditForm from "./VisitEditForm"
 import CommentCard from "./CommentCard"
 
@@ -7,6 +7,7 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   const [comments, setComments] = useState(visit.comments);
   const [toggleBttn, setToggleBttn] = useState(false)
   const [showComments, setShowComments] = useState(false);
+  const navigate = useNavigate()
   
   const handleDelete = () => {
     fetch (`/visits/${visit.id}`, {
@@ -31,13 +32,19 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
 
   return (
     <div className="card">
-      <img className="card-image" src={visit.photo} alt="food truck meal" />
+      <img
+        className="card-image"
+        src={visit.photo}
+        alt="food truck meal"
+        onClick={()=>navigate(`/trucks/${visit.truck_id}`)}
+      />
       <div className="card-content">
         <p className="card-title">
           {visit.author} <span className="card-text">{visit.caption} </span>
         </p>
         <button>edit</button>
         <button onClick={handleDelete}>delete</button>
+        <button>Comment</button>
         {comments.length > 0 ? (
           <>
             <button className="comment-toggle-button" onClick={toggleComments}>

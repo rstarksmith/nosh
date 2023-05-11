@@ -1,20 +1,16 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :index]
 
-    
-    # def index 
-    #     users = User.all
-    #     render json: users, status: :ok
-    # end
 
-    # #GET /auth
+    #GET /auth
     def show
         render json: current_user, status: :ok
     end
 
-    def profile 
-        render json: current_user, status: :ok
-    end
+    #GET /profile
+    # def profile 
+    #     render json: current_user, status: :ok
+    # end
 
     # POST /signup
     def create 

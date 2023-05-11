@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :favorites, only: [:index, :create, :destroy]
-  
   resources :visits, except: [:index, :show] do
-    resources :comments, only: [:index, :destroy]
+    resources :comments, only: :create
   end 
 
-  # resources :visits, only: [:create, :update, :destroy]
-  # resources :comments, only: [:index, :destroy]
-  
-  resources :trucks, only: [:index, :show]
+  resources :comments, only: :destroy
 
   get "/noshboard", to: "visits#index"
+
+  resources :favorites, only: [:index, :create, :destroy]
+  resources :trucks, only: [:index, :show]
+
+  # get "profile", to: "users#profile"
   get "/auth", to: "users#show"
-  get "profile", to: "users#profile"
   post "/signup", to: "users#create"
   delete "/closeaccount", to: "users#destroy"
   post "/signin", to: "sessions#create"
