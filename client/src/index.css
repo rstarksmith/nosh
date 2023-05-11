@@ -13,6 +13,68 @@ code {
     monospace;
 }
 
+/* NavBar */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar-toggle {
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar-toggle-icon {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-links li {
+  margin: 0 10px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: flex;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+  }
+
+  .navbar-links.active li {
+    margin: 10px 0;
+  }
+}
+
+
+
+
+/* Profile */
 .avatar {
   width:300px;
 }

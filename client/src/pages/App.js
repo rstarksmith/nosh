@@ -47,14 +47,14 @@ function App() {
 
   return (
     <>
-      <NavBar logOut={logOut} />
+      <NavBar logOut={logOut} user={user} />
       <Routes>
         <Route path="/" element={<Home user={user} avatar={avatar}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn logInUser={logInUser} />} />
         <Route path="/profile" element={<Profile user={user}/>} />
         <Route path="/trucks" element={<Trucks />} />
-        <Route path="/trucks/:id" element={<TruckPage />} />
+        <Route path="/trucks/:id" element={<TruckPage user={user} />} />
         <Route path="/noshboard" element={<NoshBoard />} />
       </Routes>
     </>

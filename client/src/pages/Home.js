@@ -1,18 +1,14 @@
-
+import { useNavigate } from 'react-router-dom'
 
 const Home = ({ user }) => {
+  const navigate = useNavigate()
 
- 
-
-  if (!user) return <div>loading..</div>;
-  
   return (
     <div>
-      {user.username}
       fdgsdfgsdfgsdfgsdfg
       <img src="" alt="home infographic" />
       sdfgdfgsdgfsdfgsdgf
-      <button>Sign Up</button>
+      <button onClick={()=>navigate('/signup')}>Sign Up</button>
     </div>
   );
 }

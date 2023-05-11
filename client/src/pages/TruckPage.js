@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import VisitList from '../components/VisitList'
 
-const TruckPage = () => {
+const TruckPage = ({ user }) => {
   const [truck, setTruck] = useState("")
   const [visits, setVisits] = useState("")
   const [toggleBttn, setToggleBttn] = useState(false)
@@ -20,6 +20,12 @@ const TruckPage = () => {
       }
     });
   }, [id]);
+
+  //  const setFav = ( user) => {
+  //   const isIt = user.favorites.some(favorite => favorite.truck_id === truckdata.id)
+  //  }
+
+   
 
   const addFavorite = (e) => {
       e.preventDefault();
@@ -40,7 +46,7 @@ const TruckPage = () => {
       });
     };
   
-  if (!visits) return <div>loading...</div>
+  if (!visits || !user) return <div>loading...</div>
   if (error) return <h2>{error}</h2>
 
   return (
@@ -52,8 +58,8 @@ const TruckPage = () => {
       </h3>
       <p>{truck.cuisine}</p>
 
-      { !toggleBttn ? (<button onClick={addFavorite} type='submit'>♡ Favorite</button>) : (
-      <h5>♥︎ Favorite</h5> ) }
+      <button onClick={addFavorite} type='submit'>♡ Favorite</button>
+      <button>♥︎ Favorite</button>
 
       <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
         <img src="https://i.imgur.com/B5PO9U1.png" alt="yelp link" />
