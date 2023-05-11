@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
+
 const TruckCard = ({ truck }) => {
   const navigate = useNavigate()
 
-  console.log(truck)
+
   return (
     <>
-      <div onclick={() => navigate(`/trucks/${truck.id}`)}>
+      <div onClick={() => navigate(`/trucks/${truck.id}`)}>
         <div>
           <img src={truck.image} alt={truck.name} />
         </div>

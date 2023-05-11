@@ -43,6 +43,10 @@ code {
   padding: 2px 10px;
 }
 
+.author {
+  font-weight: 600;
+}
+
 /* 
 .buttn-card {
   color: #0a0a0a;

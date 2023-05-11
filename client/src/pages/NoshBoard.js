@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import VisitCard from "../components/VisitCard";
+import VisitList from "../components/VisitList";
+
 
 const NoshBoard = () => {
   const [visits, setVisits] = useState([])
@@ -15,11 +16,10 @@ const NoshBoard = () => {
    }, []);
 
    if (!visits) return <div>loading..</div>
-
-  const displayVisits = visits.map((visit) => <VisitCard key={visit.id} visit={visit} />);
+  
   return (
     <div>
-      <ul className="cards">{displayVisits}</ul>
+      <VisitList visits={visits} />
       this will display visitcards from users who chose to share visits. flip
       through 20 at time or 20 random you can click on the cards to be taken to
       truck page, you can leave comments on a visit. this will have comment

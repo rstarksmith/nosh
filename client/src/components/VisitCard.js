@@ -1,29 +1,39 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import VisitEditForm from "./VisitEditForm"
 import CommentCard from "./CommentCard"
 
 const VisitCard = ({ visit }) => {
+  const [comments, setComments] = useState(visit.comments)
+  const [toggleBttn, setToggleBttn] = useState(false)
 
 
 // if user == visit.author setShowAuthor(true)
   
- 
-  const visitComments = visit.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)
+  const displayComments = comments.map(comment => <CommentCard key={comment.id} comment={comment} />)
   
   if (!visit) return <div>loading</div>;
- 
+  
+  const showMore = () => {
+    
+  }
 
   return (
     <div className="card">
-      <img className="card-img" src={visit.photo} alt="food" />
+      <Link to={`/trucks/${visit.truck_id}`}>
+        <img className="card-img" src={visit.photo} alt="food" />
+      </Link>
       <div className="container">
         <p>
-          {visit.author} {visit.caption}
+          <span className='author'>{visit.author} </span> {visit.caption}
         </p>
-        <button className="buttn-card">comments</button>
-        {/* {visitComments} */}
+        <div>{displayComments[0]}</div>
+        {comments.length > 1 ? (
+          <button className="buttn-card" onClick={showMore}>view more</button>
+        ) : null}
+        { toggleBttn ? (<div>{displayComments > displayComments[0]}</div>) : null }
       </div>
     </div>
-  
   );
 }
 

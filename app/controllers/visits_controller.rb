@@ -6,7 +6,7 @@ class VisitsController < ApplicationController
     # skip before action to display visits on home page 
     #GET /noshboard
     def index 
-        visits = Visit.all
+        visits = Visit.all.shuffle.sample(9)
         render json: visits, status: :ok
     end
 

@@ -1,18 +1,68 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import VisitList from '../components/VisitList'
 
 const TruckPage = () => {
+  const [truck, setTruck] = useState("")
+  const [visits, setVisits] = useState("")
+  const [toggleBttn, setToggleBttn] = useState(false)
+  const [error, setError] = useState(false)
+  const { id } = useParams()
   
+  useEffect(() => {
+    fetch(`/trucks/${id}`).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((truckData) => {
+        setTruck(truckData)
+        setVisits(truckData.visits)});
+      } else {
+        resp.json().then((resp) => setError(resp.error));
+      }
+    });
+  }, [id]);
+
+  const addFavorite = (e) => {
+      e.preventDefault();
+      fetch("/favorites", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({truck_id: truck.id}),
+      }).then((resp) => {
+        if (resp.ok) {
+          resp.json().then(setToggleBttn(true));
+        } else {
+          resp.json().then((resp) => {
+            setError(resp.error);
+          });
+        }
+      });
+    };
+  
+  if (!visits) return <div>loading...</div>
+  if (error) return <h2>{error}</h2>
 
   return (
     <div>
-        This is one Truck, I got here from the truckcard or from the visitcard
-        This is will show truck information and users visit photos. this should have
-        access to the comment form for the visits as well.
+      <img src={truck.image} alt={truck.name} />
+      <h1>{truck.name}</h1>
+      <h3>
+        {truck.city}, {truck.state}
+      </h3>
+      <p>{truck.cuisine}</p>
 
-        Maybe we can average ratings?
-        Yelp icon for links
-        <button>add as favorite</button>
+      { !toggleBttn ? (<button onClick={addFavorite} type='submit'>♡ Favorite</button>) : (
+      <h5>♥︎ Favorite</h5> ) }
+
+      <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
+        <img src="https://i.imgur.com/B5PO9U1.png" alt="yelp link" />
+      </a>
+      <div>
+        <VisitList visits={visits} />
+      </div>
     </div>
-  )
+  );
 }
 
 export default TruckPage

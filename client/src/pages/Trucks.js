@@ -15,7 +15,8 @@ const FoodTrucks = () => {
      });
   }, []);
 
-
+ if (error) return <h1>{error}</h1>
+ 
   return (
     <div>
       <button>Fort Worth</button>
@@ -23,6 +24,7 @@ const FoodTrucks = () => {
       <button>Austin</button>
       <button>Houston</button>
       <button>All</button>
+      search bar
       <div>
         <TruckList trucks={trucks} />
       </div>
