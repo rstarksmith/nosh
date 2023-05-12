@@ -19,12 +19,15 @@ const FoodTrucks = () => {
  
   return (
     <div>
-      <button>Fort Worth</button>
-      <button >Dallas</button>
-      <button>Austin</button>
-      <button>Houston</button>
-      <button>All</button>
-      search bar
+      <h1>Texas Food Trucks</h1>
+      <div>
+        <button>Fort Worth</button>
+        <button>Dallas</button>
+        <button>Austin</button>
+        <button>Houston</button>
+        <button>All</button>
+      </div>
+      <div>search bar</div>
       <div className="truck-card-container">
         <TruckList trucks={trucks} />
       </div>

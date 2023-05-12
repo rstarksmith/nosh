@@ -12,16 +12,4 @@ class TrucksController < ApplicationController
         render json: truck, status: :ok
     end
 
-    # def destroy - stretch admin
-    #     truck = truck.find(params[:id])
-    #     truck.destroy
-    #     head :no_content
-    # end
-
-    # private
-
-    # def truck_params 
-    #     params.permit(:name)
-    # end
-
 end

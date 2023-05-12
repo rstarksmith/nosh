@@ -9,19 +9,19 @@ class VisitsController < ApplicationController
 
     #POST /visits
     def create 
-        visit = Visit.create!(visit_params)
+        visit = current_user.visits.create!(visit_params)
         render json: visit, status: :created
     end
 
     #PATCH /visits/:id 
     def update 
-        @visit.update(visit_params)
+        @visit.update!(visit_params)
         render json: visit, status: :ok
     end
 
     #DELETE /visits/:id 
     def destroy
-        @visit.destroy 
+        @visit.destroy! 
         head :no_content
     end
 

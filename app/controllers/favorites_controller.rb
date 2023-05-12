@@ -1,11 +1,11 @@
 class FavoritesController < ApplicationController
 
     #GET /favorites
-    def index 
-        favs = current_user.favorites.all 
-        render json: favs, status: :ok
-    end
-
+    # def index 
+    #     favs = current_user.favorites.all 
+    #     render json: favs, status: :ok
+    # end
+                                                                                                                                                                                                                                          
     #POST /favorites
     def create 
         fav = current_user.favorites.create!(fav_params)

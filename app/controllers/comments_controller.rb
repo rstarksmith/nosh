@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   
     #POST /visits/:visit_id/comments
     def create 
-        comment = current_user.comments.create!(comment_params)
+        visir = Visit.find(params[:visit_id])
+        comment = visit.comments.create!(comment_params)
+        # comment = current_user.comments.create!(comment_params)
         render json: comment, status: :created
     end
 

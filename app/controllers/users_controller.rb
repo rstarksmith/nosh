@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :index]
 
-
     #GET /auth
     def show
         render json: current_user, status: :ok
@@ -13,12 +12,14 @@ class UsersController < ApplicationController
     # end
 
     # POST /signup
+    #how to add avatar
     def create 
         user = User.create!(user_params)
         session[:user_id] = user.id
         render json: user, status: :created
     end
 
+    #can I patch avatar and tagline?
     #PATCH /user/:id
     # def update
     #     current_user.update!(user_update_params)

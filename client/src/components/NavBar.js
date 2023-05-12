@@ -10,13 +10,23 @@ const NavBar = ({ logOut, user }) => {
     setShowNav(!showNav);
   };
 
+  <a href="https://imgur.com/gSE8qr7">
+    <img src="https://i.imgur.com/gSE8qr7.png" title="source: imgur.com" />
+  </a>;
+
   return (
     <div>
       <nav className="navbar">
         <div className="navbar-toggle" onClick={toggleNav}>
           <span className="navbar-toggle-icon"></span>
         </div>
-        <Link to="/">nosh.up</Link>
+        <Link to="/">
+          <img
+          className='navbar-logo'
+            src="https://i.imgur.com/gSE8qr7.png"
+            alt="nosh up logo"
+          />
+        </Link>
         <ul className={`navbar-links ${showNav ? "active" : ""}`}>
           <li>
             <NavLink to="/">Home</NavLink>

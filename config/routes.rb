@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "/noshboard", to: "visits#index"
 
-  resources :favorites, only: [:index, :create, :destroy]
+  resources :favorites, only: [ :create, :destroy]
   resources :trucks, only: [:index, :show]
 
   # get "profile", to: "users#profile"

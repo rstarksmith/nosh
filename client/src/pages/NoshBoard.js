@@ -27,8 +27,11 @@ const NoshBoard = () => {
    }
   
   return (
-    <div className="card-container">
-      <VisitList removeVisit={removeVisit} visits={visits} />
+    <div>
+      <h1>Nosh Board</h1>
+      <div className="card-container">
+        <VisitList removeVisit={removeVisit} visits={visits} />
+      </div>
     </div>
   );
 }

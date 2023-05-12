@@ -51,18 +51,24 @@ const TruckPage = ({ user }) => {
 
   return (
     <div>
-      <img src={truck.image} alt={truck.name} />
+      <div>
+        <img src={truck.image} alt={truck.name} />
+      </div>
       <h1>{truck.name}</h1>
       <h3>
         {truck.city}, {truck.state}
       </h3>
       <p>{truck.cuisine}</p>
-
-      <button onClick={addFavorite} type='submit'>♡ Favorite</button>
+      <button onClick={addFavorite} type="submit">
+        ♡ Favorite
+      </button>
       <button>♥︎ Favorite</button>
-
       <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/B5PO9U1.png" alt="yelp link" />
+        <img
+          src="https://i.imgur.com/B5PO9U1.png"
+          className="yelp-icon"
+          alt="yelp link"
+        />
       </a>
       <div>
         <VisitList visits={visits} />

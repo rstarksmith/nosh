@@ -15,7 +15,7 @@ code {
 
 /* NavBar */
 .navbar {
-  background-color: #333;
+  background-color: #575757;
   padding: 10px;
 }
 
@@ -30,6 +30,15 @@ code {
   height: 5px;
   background-color: #fff;
   margin: 6px 0;
+}
+
+/* make flex */
+.navbar-logo {
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 165px;
+    /* overflow: hidden; */
 }
 
 .navbar-links {
@@ -90,7 +99,7 @@ code {
 .card {
   width: calc(33.33% - 20px);
   margin-bottom: 20px;
-  background-color: #f2f2f2;
+  background-color: #e0e1e1;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -161,6 +170,12 @@ code {
   font-size: 16px;
   margin: 10px;
   margin-bottom: 0;
+}
+
+/* TruckPage */
+
+.yelp-icon {
+  width: 40px;
 }
 
 
