@@ -5,7 +5,7 @@ import CommentCard from "./CommentCard"
 
 const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   const [comments, setComments] = useState(visit.comments);
-  const [toggleBttn, setToggleBttn] = useState(false)
+  const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
   const navigate = useNavigate()
   
@@ -20,6 +20,12 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
       })
   }
 
+  //  const handleEdit = () => {
+  //    fetch(`/visits/${id}`, {
+  //      method: "PATCH",
+  //    });
+  //  };
+
   const displayComments = comments.map((comment) => (
     <CommentCard key={comment.id} comment={comment} />
   ));
@@ -30,19 +36,27 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
     setShowComments(!showComments);
   };
 
+  const toggleForm = () => {
+    setShowForm(!showForm)
+  }
+
   return (
     <div className="card">
       <img
         className="card-image"
         src={visit.photo}
         alt="food truck meal"
-        onClick={()=>navigate(`/trucks/${visit.truck_id}`)}
+        onClick={() => navigate(`/trucks/${visit.truck_id}`)}
       />
       <div className="card-content">
-        <p className="card-title">
-          {visit.author} <span className="card-text">{visit.caption} </span>
-        </p>
-        <button>edit</button>
+        <p className="card-title">{visit.author} </p>
+        {toggleForm ? (
+          <VisitEditForm visit={visit} toggleForm={toggleForm} />
+        ) : (
+          <p className="card-text">{visit.caption}</p>
+        )}
+
+        <button onClick={toggleForm}>edit</button>
         <button onClick={handleDelete}>delete</button>
         <button>Comment</button>
         {comments.length > 0 ? (
@@ -61,22 +75,4 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
 
 export default VisitCard
 
-// return (
-//     <div className="card">
-//       <Link to={`/trucks/${visit.truck_id}`}>
-//         <img className="card-img" src={visit.photo} alt="food" />
-//       </Link>
-//       <div className="container">
-//         <p>
-//           <span className='author'>{visit.author} </span> {visit.caption}
-//         </p>
-//         <div>{displayComments[0]}</div>
-//         {comments.length > 1 ? (
-//           <button className="buttn-card" onClick={showMore}>view more</button>
-//         ) : null}
-//         { toggleBttn ? (<div>{displayComments > displayComments[0]}</div>) : null }
-//       </div>
-//     </div>
-//   );
-// }
 

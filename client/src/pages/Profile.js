@@ -18,6 +18,8 @@ const Profile = ({ user, deleteVisit }) => {
   //   });
   // }, []);
 
+ 
+
 
   const displayUserVisits = user.visits.map((visit) => (
     <VisitCard key={visit.id} visit={visit} deleteVisit={deleteVisit} />

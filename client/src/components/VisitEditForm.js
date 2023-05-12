@@ -1,9 +1,29 @@
+import { useState } from 'react'
 
+const VisitEditForm = ({ visit, toggleForm }) => {
+  const [caption, setCaption] = useState()
 
-const VisitEditForm = () => {
+const handleEdit = (e) => {
+  e.preventDefault()
+  toggleForm()
+
+}
+
   return (
-    <div>VisitEditForm</div>
-  )
+    <div>
+      <form onSubmit={handleEdit}>
+        <input
+          type="text"
+          name="caption"
+          value={caption}
+          onChange={(e) => setCaption(e.target.value)}
+          placeholder="edit caption"
+          className="input"
+          autoComplete="off"
+        />
+      </form>
+    </div>
+  );
 }
 
 export default VisitEditForm
