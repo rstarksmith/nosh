@@ -1,5 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import { UserProvider } from '../context/user';
 import NavBar from "../components/NavBar";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
@@ -53,16 +54,21 @@ function App() {
 
   return (
     <>
-      <NavBar logOut={logOut} user={user} />
-      <Routes>
-        <Route path="/" element={<Home user={user} avatar={avatar}/>} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn logInUser={logInUser} />} />
-        <Route path="/profile" element={<Profile user={user} deleteVisit={deleteVisit}/>} />
-        <Route path="/trucks" element={<Trucks />} />
-        <Route path="/trucks/:id" element={<TruckPage user={user} />} />
-        <Route path="/noshboard" element={<NoshBoard />} />
-      </Routes>
+      <UserProvider>
+        <NavBar logOut={logOut} user={user} />
+        <Routes>
+          <Route path="/" element={<Home user={user} avatar={avatar} />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn logInUser={logInUser} />} />
+          <Route
+            path="/profile"
+            element={<Profile user={user} deleteVisit={deleteVisit} />}
+          />
+          <Route path="/trucks" element={<Trucks />} />
+          <Route path="/trucks/:id" element={<TruckPage user={user} />} />
+          <Route path="/noshboard" element={<NoshBoard />} />
+        </Routes>
+      </UserProvider>
     </>
   );
 }
