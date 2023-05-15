@@ -1,13 +1,14 @@
 // import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useState } from "react-router-dom";
 import VisitForm from "../components/VisitForm"
 import VisitCard from "../components/VisitCard";
 
 const Profile = ({ user, deleteVisit }) => {
+  
   const navigate = useNavigate()
 
   
-  if (!user) return <div>loading..</div>;
+  if (!user) return <div>Loading..</div>;
   // useEffect(() => {
   //   fetch("/profile").then((resp) => {
   //     if (resp.ok) {

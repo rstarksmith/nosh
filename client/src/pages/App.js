@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-import { UserProvider } from '../context/user';
 import NavBar from "../components/NavBar";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
@@ -54,7 +53,6 @@ function App() {
 
   return (
     <>
-      <UserProvider>
         <NavBar logOut={logOut} user={user} />
         <Routes>
           <Route path="/" element={<Home user={user} avatar={avatar} />} />
@@ -68,7 +66,6 @@ function App() {
           <Route path="/trucks/:id" element={<TruckPage user={user} />} />
           <Route path="/noshboard" element={<NoshBoard />} />
         </Routes>
-      </UserProvider>
     </>
   );
 }

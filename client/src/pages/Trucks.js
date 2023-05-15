@@ -3,12 +3,15 @@ import TruckList from '../components/TruckList'
 
 const FoodTrucks = () => {
   const [trucks, setTrucks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false)
 
   useEffect(() => {
      fetch("/trucks").then((resp) => {
        if (resp.ok) {
-         resp.json().then((truckData) => setTrucks(truckData));
+         resp.json().then((truckData) => {
+          setTrucks(truckData)
+          setIsLoading(false)});
        } else {
          resp.json().then((data) => setError(data.error));
        }
@@ -29,6 +32,7 @@ const FoodTrucks = () => {
       </div>
       <div>search bar</div>
       <div className="truck-card-container">
+        {isLoading && <h2>Loading...</h2>}
         <TruckList trucks={trucks} />
       </div>
     </div>

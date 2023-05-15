@@ -13,8 +13,10 @@ const TruckPage = ({ user }) => {
     fetch(`/trucks/${id}`).then((resp) => {
       if (resp.ok) {
         resp.json().then((truckData) => {
-        setTruck(truckData)
-        setVisits(truckData.visits)});
+          setTruck(truckData);
+          setVisits(truckData.visits);
+        ;
+        });
       } else {
         resp.json().then((resp) => setError(resp.error));
       }
@@ -46,7 +48,7 @@ const TruckPage = ({ user }) => {
       });
     };
   
-  if (!visits || !user) return <div>loading...</div>
+  if (!visits || !user) return <div>Loading...</div>
   if (error) return <h2>{error}</h2>
 
   return (
