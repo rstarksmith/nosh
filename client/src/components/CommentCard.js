@@ -1,8 +1,21 @@
 import { useState } from "react";
 import CommentForm from "./CommentForm"
 
-const CommentCard = ({ visit, comment }) => {
+const CommentCard = ({ visit, comment, deleteComment }) => {
   const [seeForm, setSeeForm] = useState(false)
+  const [errors, setErrors] = useState(null)
+
+  const handleDeleteComment = () => {
+     fetch(`/comments/${comment.id}`, {
+       method: "DELETE",
+     }).then((resp) => {
+       if (resp.ok) {
+         deleteComment(comment.id);
+       } else {
+         resp.json().then((resp) => setErrors(resp.errors));
+       }
+     });
+  }
 
   const toggleTheForm = () => {
     setSeeForm(!seeForm)
@@ -11,7 +24,7 @@ const CommentCard = ({ visit, comment }) => {
   return (
     <div>
       <p>
-        {comment.commentor} {comment.reply} <button>trashcan</button>
+        {comment.commentor} {comment.reply} <button onClick={handleDeleteComment}>trashcan</button>
       </p>
       {seeForm ? (
         <CommentForm visit={visit} comment={comment} />

@@ -19,6 +19,11 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
        };
       })
   }
+  
+  const deleteComment = (deletedComment) => {
+    const editComments = comments.filter(comment => comment.id !== deletedComment.id)
+    setComments(editComments)
+  }
 
   //  const handleEdit = () => {
   //    fetch(`/visits/${id}`, {
@@ -30,7 +35,7 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   // is === to the visit.user_id 
 
   const displayComments = comments.map((comment) => (
-    <CommentCard key={comment.id} visit={visit} comment={comment} />
+    <CommentCard key={comment.id} visit={visit} comment={comment} deleteComment={deleteComment}/>
   ));
 
   if (!visit) return <div>loading</div>;
