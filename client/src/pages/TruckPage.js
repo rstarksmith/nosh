@@ -24,10 +24,6 @@ const TruckPage = ({ user }) => {
     });
   }, [id]);
 
-  // useEffect(() => { 
-  //   const isIt = user.favorites.some(favorite => favorite.truck_id === truck.id)
-  //  setToggleBttn(isIt)
-  // },[user, truck.id]);
 
   const addFavorite = (e) => {
     e.preventDefault();
@@ -47,7 +43,7 @@ const TruckPage = ({ user }) => {
       }
     });
   };
-
+// need user access on this page to set the fav button upon navigating
   //  const setFav = (user) => {
   //   const isIt = user.favorites.some(favorite => favorite.truck_id === truckdata.id)
   //  }
@@ -78,7 +74,7 @@ const TruckPage = ({ user }) => {
       </h3>
       <p>{truck.cuisine}</p>
 
-      <button onClick={addFavorite} type="submit">
+      <button onSubmit={addFavorite} type="submit">
         {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
       </button>
       <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
@@ -98,7 +94,7 @@ const TruckPage = ({ user }) => {
         </div>
       ) : (
         <div>
-          <h2>Nosh snaps</h2>
+          <h2>{visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}</h2>
           <VisitList visits={visits} />
         </div>
       )}

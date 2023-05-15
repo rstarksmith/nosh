@@ -5,5 +5,5 @@ class Truck < ApplicationRecord
     has_many :visits
     # should I dependent destroy visits? 
     has_many :users, through: :visits
-    has_many :users, through: :favorites
+    has_many :user, through: :favorites
 end
