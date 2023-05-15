@@ -5,7 +5,7 @@ const VisitEditForm = ({ visit, toggleForm }) => {
 
 const handleEdit = (e) => {
   e.preventDefault()
-  toggleForm()
+  
 
 }
 

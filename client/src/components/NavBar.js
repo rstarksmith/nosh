@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from "react-router-dom";
-// import { ResponsiveNavbar } from "react-hamburger-menus";
-// import "react-hamburger-menus/dist/style.css";
+
 
 const NavBar = ({ logOut, user }) => {
   const [showNav, setShowNav] = useState(false);
@@ -11,7 +10,7 @@ const NavBar = ({ logOut, user }) => {
   };
 
   <a href="https://imgur.com/gSE8qr7">
-    <img src="https://i.imgur.com/gSE8qr7.png" title="source: imgur.com" />
+    <img src="https://i.imgur.com/gSE8qr7.png" alt="nosh up logo" />
   </a>;
 
   return (

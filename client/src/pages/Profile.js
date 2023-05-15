@@ -37,7 +37,6 @@ const Profile = ({ user, deleteVisit }) => {
       <h2>My Favorite Trucks</h2>
       <div>{displayFavorites}</div>
       <div className="card-container">{displayUserVisits}</div>
-
       <VisitForm />
     </div>
   );

@@ -12,7 +12,7 @@ import NoshBoard from "./NoshBoard";
 
 function App() {
   const [user, setUser] = useState(null)
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,8 +20,8 @@ function App() {
       if (resp.ok) {
         resp.json().then((newUser) => {
           setUser(newUser);
-        });
-      }
+        })
+      } 
     });
   }, []);
 

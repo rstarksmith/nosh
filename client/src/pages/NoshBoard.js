@@ -5,21 +5,24 @@ import VisitList from "../components/VisitList";
 const NoshBoard = () => {
   const [visits, setVisits] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
    useEffect(() => {
      fetch("/noshboard").then((resp) => {
        if (resp.ok) {
          resp.json().then((newUser) => {
            setVisits(newUser);
-           setIsLoading(false)
+           setIsLoading(false);
          });
+       } else {
+         resp.json().then((data) => setError(data.error));
        }
      });
    }, []);
 
    
 
-   if (!visits) return <div>loading..</div>
+  //  if (!visits) return <div>loading..</div>
 
    const removeVisit = (deletedVisit) => {
     const reviseVisits = visits.filter(
@@ -27,6 +30,8 @@ const NoshBoard = () => {
     );
     setVisits(reviseVisits);
    }
+  
+  if (error) return <h1>{error}</h1>
   
   return (
     <div>

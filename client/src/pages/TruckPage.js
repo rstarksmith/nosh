@@ -48,8 +48,9 @@ const TruckPage = ({ user }) => {
       });
     };
   
+  if (error) return <h1>{error}</h1>;
   if (!visits || !user) return <div>Loading...</div>
-  if (error) return <h2>{error}</h2>
+  
 
   return (
     <div>
