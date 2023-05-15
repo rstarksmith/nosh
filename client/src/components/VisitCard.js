@@ -26,11 +26,26 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   //    });
   //  };
 
+  // i need the user.id on the card so i can hide the edit and delete if the user.id
+  // is === to the visit.user_id 
+
   const displayComments = comments.map((comment) => (
     <CommentCard key={comment.id} comment={comment} />
   ));
 
   if (!visit) return <div>loading</div>;
+
+  const displayRating = (visit) => {
+    if (visit.rating === 0) {
+      return 1;
+    } else if (visit.rating === 1) {
+      return 11;
+    } else if (visit.rating === 2) {
+      return 111;
+    } else {
+      return "♥︎♥︎♥︎♥︎";
+    }
+  };
 
   const toggleComments = () => {
     setShowComments(!showComments);
@@ -50,19 +65,24 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
       />
       <div className="card-content">
         <p className="card-title">{visit.author} </p>
-        {toggleForm ? (
-          <VisitEditForm visit={visit} toggleForm={toggleForm} />
-        ) : (
-          <p className="card-text">{visit.caption}</p>
-        )}
-
+        <div>
+          {showForm ? (
+            <VisitEditForm visit={visit} toggleForm={toggleForm} />
+          ) : (
+            <p className="card-text">{visit.caption}</p>
+          )}{" "}
+        </div>
+        <p>{displayRating(visit)}</p>
+        <p>{visit.created_at}</p>
         <button onClick={toggleForm}>edit</button>
         <button onClick={handleDelete}>delete</button>
-        <button>Comment</button>
+        {/* make a trash can icon for delete */}
+        <br/>
+        <button>Leave Comment</button>
         {comments.length > 0 ? (
           <>
             <button className="comment-toggle-button" onClick={toggleComments}>
-              {showComments ? "Hide Comments" : "Show Comments"}
+              {showComments ? "Hide Comments" : "+Comments"}
             </button>
             {showComments && displayComments}
           </>

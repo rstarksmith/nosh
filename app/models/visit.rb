@@ -2,7 +2,7 @@ class Visit < ApplicationRecord
     validates_presence_of :caption, :rating
     validates :caption, length: { in: 2..60}
     validates :rating, numericality: { only_integer: true }
-    # rating pending validation 
+    # rating 0-3 must be
 
     has_one_attached :photo
     

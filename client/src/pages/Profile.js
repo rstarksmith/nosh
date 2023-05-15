@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import { useNavigate, useState } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import VisitForm from "../components/VisitForm"
 import VisitCard from "../components/VisitCard";
 
@@ -31,13 +31,11 @@ const Profile = ({ user, deleteVisit }) => {
   return (
     <div>
       <img src={user.avatar} alt="avatar" className="avatar" />
-      <button>New Post</button>
       <h2>{user.username}</h2>
       <h3>{user.tagline}</h3>
       <h2>My Favorite Trucks</h2>
       <div>{displayFavorites}</div>
       <div className="card-container">{displayUserVisits}</div>
-      <VisitForm />
     </div>
   );
 }

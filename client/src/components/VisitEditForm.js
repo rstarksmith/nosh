@@ -1,13 +1,32 @@
 import { useState } from 'react'
 
 const VisitEditForm = ({ visit, toggleForm }) => {
-  const [caption, setCaption] = useState()
+  const [editData, setEditData] = useState(visit)
+  const [errors, setErrors] = useState(null)
 
-const handleEdit = (e) => {
-  e.preventDefault()
-  
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditData({ ...editData, [name]: value });
+  };
 
-}
+  const handleEdit = (e) => {
+    e.preventDefault()
+    fetch(`/visits/${visit.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editData),
+    }).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((updatedVisit) => {
+          // handleEdit(updatedVisit)
+          toggleForm()
+        })
+      } else {
+        resp.json().then((resp) => setErrors(resp.errors));
+      }
+    })  
+  }
+
 
   return (
     <div>
@@ -15,9 +34,8 @@ const handleEdit = (e) => {
         <input
           type="text"
           name="caption"
-          value={caption}
-          onChange={(e) => setCaption(e.target.value)}
-          placeholder="edit caption"
+          value={editData.caption}
+          onChange={handleEditChange}
           className="input"
           autoComplete="off"
         />

@@ -1,7 +1,13 @@
 import { useState } from "react"
 
-const VisitForm = () => {
-  const [caption, setCaption] = useState("")
+const VisitForm = ({ truck }) => {
+  const [formData, setFormData] = useState({
+    rating: 0,
+    caption: "",
+    private: "",
+    truck_id: 0,
+    photo: ""
+  })
   
   return (
     <div>
@@ -9,7 +15,7 @@ const VisitForm = () => {
         <input
           type="text"
           name="caption"
-          value={""}
+          value={formData.caption}
           // onChange={(e) => setCaption(e.target.value)}
           placeholder="edit caption"
           className="input"
