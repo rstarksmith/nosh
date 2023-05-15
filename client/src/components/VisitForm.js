@@ -87,6 +87,7 @@ const VisitForm = ({ truck }) => {
         <br />
         <button type="submit" onSubmit={handleAddVisit}>Post Visit</button>
       </form>
+      
     </div>
   );
 }

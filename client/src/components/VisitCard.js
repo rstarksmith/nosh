@@ -30,7 +30,7 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   // is === to the visit.user_id 
 
   const displayComments = comments.map((comment) => (
-    <CommentCard key={comment.id} comment={comment} />
+    <CommentCard key={comment.id} visit={visit} comment={comment} />
   ));
 
   if (!visit) return <div>loading</div>;
@@ -78,7 +78,6 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
         <button onClick={handleDelete}>delete</button>
         {/* make a trash can icon for delete */}
         <br/>
-        <button>Leave Comment</button>
         {comments.length > 0 ? (
           <>
             <button className="comment-toggle-button" onClick={toggleComments}>
