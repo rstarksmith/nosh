@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [ :create, :destroy]
   resources :trucks, only: [:index, :show]
 
-  # get "profile", to: "users#profile"
+  get "profile", to: "users#profile"
   get "/auth", to: "users#show"
   post "/signup", to: "users#create"
   delete "/closeaccount", to: "users#destroy"

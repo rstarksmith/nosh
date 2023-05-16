@@ -1,21 +1,35 @@
-// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import VisitCard from "../components/VisitCard";
 
 const Profile = ({ deleteVisit }) => {
+  const [profile, setProfile] = useState(null)
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
-
   const { user } = useAuth();
-  
-  if (!user) return <div>Loading..</div>;
+
+  useEffect(() => {
+    fetch('/profile').then((resp) => {
+      if (resp.ok) {
+        resp.json().then((profileData) => {
+          setProfile(profileData)
+        });
+      } else {
+        resp.json().then((resp) => setError(resp.error));
+      }
+    });
+  }, []);
+
+  if (!user) return <h1>Not Authorized</h1>
+  if (!profile) return <h1>Loading..</h1>;
  
+  const displayUserVisits = profile.visits.map((visit) => {
+    return <VisitCard key={visit.id} visit={visit} deleteVisit={deleteVisit} />
+  });
 
-  const displayUserVisits = user.visits.map((visit) => (
-    <VisitCard key={visit.id} visit={visit} deleteVisit={deleteVisit} />
-  ));
-
-  const displayFavorites = user.favorites.map(favorite => <button onClick={() => navigate(`/trucks/${favorite.truck_id}`)} key={favorite.id}>{favorite.fav}</button>)
+  const displayFavorites = profile.favorites.map(f => {
+  return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
 
   return (
     <div>

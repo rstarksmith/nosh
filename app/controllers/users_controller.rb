@@ -3,13 +3,13 @@ class UsersController < ApplicationController
 
     #GET /auth
     def show
-        render json: current_user, status: :ok
+        render json: current_user, include: [], status: :ok
     end
 
     #GET /profile
-    # def profile 
-    #     render json: current_user, status: :ok
-    # end
+    def profile 
+        render json: current_user, status: :ok
+    end
 
     # POST /signup
     #how to add avatar
