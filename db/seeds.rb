@@ -52,7 +52,7 @@ t1 = Truck.create(name: "Leo's Churro Bar", image: "https://s3-media0.fl.yelpcdn
 t2 = Truck.create(name: "The Beignet Bus", image: "https://s3-media0.fl.yelpcdn.com/bphoto/vS3gz3_RVjZ1K2usrO1nrg/o.jpg", cuisine: "dessert, donuts, coffee", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/the-beignet-bus-fort-worth-2?osq=food+truck")
 t3 = Truck.create(name: "Ober Here", image: "https://s3-media0.fl.yelpcdn.com/bphoto/1T1nu1JW5K4YWVQLrkn-Ew/o.jpg", cuisine: "Filipino", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/leo-s-churro-bar-fort-worth?osq=food+truck")
 t4 = Truck.create(name: "Wily Wieners", image: "https://wilywieners.com/wp-content/uploads/sb-instagram-feed-images/298373328_474747844027275_7348088822834417695_n.webpfull.jpg", cuisine: "Hot Dogs", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/wily-wieners-fort-worth-3?osq=food+truck")
-t5 = Truck.create(name: "Holy Frijole", image: "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/274872019_5338167839526850_5450996678873743038_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=lGskDUpr0coAX-tepfI&_nc_ht=scontent-dfw5-2.xx&oh=00_AfASsdnEiqank35Y3yvjeArFIHXu4DiXnBsj8236rNAJtA&oe=645D9B0A", cuisine: "Tex-Mex, Mexican", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/holy-frijole-fort-worth?osq=food+truck")
+t5 = Truck.create(name: "Holy Frijole", image: "https://scontent-dfw5-1.xx.fbcdn.net/v/t1.6435-9/118837943_3637738132903171_7902125842989491012_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=M4BqOCnONP4AX8p5vMX&_nc_ht=scontent-dfw5-1.xx&oh=00_AfAI-c9TftPoB5xZP1B-NOSQwobywtSrXKooH9eGlzoBCA&oe=648B04FE", cuisine: "Tex-Mex, Mexican", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/holy-frijole-fort-worth?osq=food+truck")
 t6 = Truck.create(name: "Kelly's Onion Burgers", image: "https://s3-media0.fl.yelpcdn.com/bphoto/WhH3eo05Jb31SvZ7chdUfw/o.jpg", cuisine: "Burgers", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/kelly-s-onion-burgers-fort-worth?osq=food+truck")
 t7 = Truck.create(name: "Brix Barbecue", image: "https://s3-media0.fl.yelpcdn.com/bphoto/wzTbpOUV30i7u4nib7J5gw/o.jpg", cuisine: "Barbecue", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/brix-barbecue-fort-worth-2?osq=food+truck")
 t8 = Truck.create(name: "Primo's Tacos", image: "https://s3-media0.fl.yelpcdn.com/bphoto/_djD33Tt-SiBz3ejxmaVyg/o.jpg", cuisine: "Tacos, Mexican", city: "Fort Worth", state: "Texas", yelp: "https://www.yelp.com/biz/primos-tacos-fort-worth?osq=food+truck")
@@ -117,7 +117,7 @@ v5.photo.attach(
     filename: 'visit5.png',
     content_type: 'application/png'
 )
-v6 = Visit.create(rating: 3, caption: "you had me at pickles", private: false, user_id: james.id, truck_id: t6.id )
+v6 = Visit.create(rating: 3, caption: "you had me at pickles", private: false, user_id: james.id, truck_id: t7.id )
 v6.photo.attach(
     io: File.open('./public/photos/visit6.png'),
     filename: 'visit6.png',
