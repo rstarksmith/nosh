@@ -71,7 +71,7 @@ const VisitCard = ({ user, visit, deleteVisit, removeVisit }) => {
         onClick={() => navigate(`/trucks/${visit.truck_id}`)}
       />
       <div className="card-content">
-        <p>
+        <p className='rate-container'>
           <Rating visit={visit} /> <span className='card-date'>{visit.created_at}</span>
         </p>
         <div>

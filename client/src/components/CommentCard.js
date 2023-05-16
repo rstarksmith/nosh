@@ -19,10 +19,11 @@ const CommentCard = ({ comment, deleteComment }) => {
   return (
     <div>
       <p>
-        {comment.commentor} {comment.reply}{" "}<button onClick={handleDeleteComment}>trashcan</button>
+        {comment.commentor} {comment.reply}{" "}<img onClick={handleDeleteComment} className="trash" src="https://i.imgur.com/EmzBZP9.png" alt="trashcan"/>
       </p>
     </div>
   );
 }
 
 export default CommentCard
+
