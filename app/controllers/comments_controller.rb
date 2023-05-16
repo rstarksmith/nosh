@@ -1,12 +1,10 @@
 class CommentsController < ApplicationController
-    before_action :find_comment, only: :destroy
+    before_action :find_comment, :authorize_delete, only: :destroy
     
   
     #POST /visits/:visit_id/comments
     def create 
-        visir = Visit.find(params[:visit_id])
-        comment = visit.comments.create!(comment_params)
-        # comment = current_user.comments.create!(comment_params)
+        comment = current_user.comments.create!(comment_params)
         render json: comment, status: :created
     end
 
@@ -19,7 +17,7 @@ class CommentsController < ApplicationController
     private
 
     def find_comment
-        @comment = visits.comments.find(params[:id])
+        @comment = Comment.find(params[:id])
     end
 
     def comment_params 

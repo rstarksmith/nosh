@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-const CommentForm = ({ visit, comment }) => {
+const CommentForm = ({ visit, addComment }) => {
   const [reply, setReply] = useState("")
   const [errors, setErrors] = useState(null)
-
 
   const handleAddComment = (e) => {
     e.preventDefault()
@@ -21,7 +20,7 @@ const CommentForm = ({ visit, comment }) => {
         .then((resp) => {
           if (resp.ok) {
             resp.json().then((newComment) => {
-              console.log(newComment); 
+              addComment(newComment); 
             });
           } else {
             resp.json().then((resp) => setErrors(resp.errors));
@@ -31,6 +30,7 @@ const CommentForm = ({ visit, comment }) => {
 
   return (
     <div>
+      {errors ? {errors} : null }
       <form onSubmit={handleAddComment}>
         <label>Reply: </label>
         <input
@@ -45,6 +45,7 @@ const CommentForm = ({ visit, comment }) => {
         <br />
         <button type="submit">Post Reply</button>
       </form>
+      <button>Cancel</button>
     </div>
   );
 }

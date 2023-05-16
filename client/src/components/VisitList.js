@@ -1,8 +1,8 @@
 import VisitCard from "./VisitCard"
 
-const VisitList = ({ visits, removeVisit }) => {
+const VisitList = ({ user, visits, removeVisit }) => {
 
-    const displayVisits = visits.map((visit) => (<VisitCard key={visit.id}  removeVisit={removeVisit} visit={visit} />));
+    const displayVisits = visits.map((visit) => (<VisitCard key={visit.id} user={user} removeVisit={removeVisit} visit={visit} />));
     
     return (
       <>

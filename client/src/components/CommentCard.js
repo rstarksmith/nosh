@@ -1,8 +1,7 @@
 import { useState } from "react";
-import CommentForm from "./CommentForm"
 
-const CommentCard = ({ visit, comment, deleteComment }) => {
-  const [seeForm, setSeeForm] = useState(false)
+
+const CommentCard = ({ comment, deleteComment }) => {
   const [errors, setErrors] = useState(null)
 
   const handleDeleteComment = () => {
@@ -17,20 +16,11 @@ const CommentCard = ({ visit, comment, deleteComment }) => {
      });
   }
 
-  const toggleTheForm = () => {
-    setSeeForm(!seeForm)
-  }
-
   return (
     <div>
       <p>
-        {comment.commentor} {comment.reply} <button onClick={handleDeleteComment}>trashcan</button>
+        {comment.commentor} {comment.reply}{" "}<button onClick={handleDeleteComment}>trashcan</button>
       </p>
-      {seeForm ? (
-        <CommentForm visit={visit} comment={comment} />
-      ) : (
-        <button onClick={toggleTheForm}>Leave Comment</button>
-      )}
     </div>
   );
 }

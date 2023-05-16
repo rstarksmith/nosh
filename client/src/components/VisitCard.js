@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Rating from './Rating'
 import VisitEditForm from "./VisitEditForm"
 import CommentCard from "./CommentCard"
+import CommentForm from "./CommentForm";
 
-const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
+const VisitCard = ({ user, visit, deleteVisit, removeVisit }) => {
   const [comments, setComments] = useState(visit.comments);
   const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
+  const [seeForm, setSeeForm] = useState(false);
   const navigate = useNavigate()
   
   const handleDelete = () => {
@@ -19,9 +22,14 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
        };
       })
   }
+ 
+  const addComment = (newComment) => {
+    setComments(prevState => [...prevState, newComment])
+    toggleCommentForm()
+  }
   
-  const deleteComment = (deletedComment) => {
-    const editComments = comments.filter(comment => comment.id !== deletedComment.id)
+  const deleteComment = (deletedId) => {
+    const editComments = comments.filter(comment => comment.id !== deletedId)
     setComments(editComments)
   }
 
@@ -40,17 +48,7 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
 
   if (!visit) return <div>loading</div>;
 
-  const displayRating = (visit) => {
-    if (visit.rating === 0) {
-      return 1;
-    } else if (visit.rating === 1) {
-      return 11;
-    } else if (visit.rating === 2) {
-      return 111;
-    } else {
-      return "♥︎♥︎♥︎♥︎";
-    }
-  };
+  
 
   const toggleComments = () => {
     setShowComments(!showComments);
@@ -59,6 +57,10 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   const toggleForm = () => {
     setShowForm(!showForm)
   }
+
+  const toggleCommentForm = () => {
+    setSeeForm(!seeForm);
+  };
 
   return (
     <div className="card">
@@ -69,26 +71,45 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
         onClick={() => navigate(`/trucks/${visit.truck_id}`)}
       />
       <div className="card-content">
-        <p className="card-title">{visit.author} </p>
+        <p>
+          <Rating visit={visit} /> <span className='card-date'>{visit.created_at}</span>
+        </p>
         <div>
           {showForm ? (
-            <VisitEditForm visit={visit} toggleForm={toggleForm} />
+            <>
+              <p className="card-title">{visit.author} </p>
+              <VisitEditForm visit={visit} toggleForm={toggleForm} />
+            </>
           ) : (
-            <p className="card-text">{visit.caption}</p>
+            <>
+              <p className="card-title">
+                {visit.author}{" "}
+                <span className="card-text">{visit.caption}</span>
+              </p>
+            </>
           )}{" "}
         </div>
-        <p>{displayRating(visit)}</p>
-        <p>{visit.created_at}</p>
         <button onClick={toggleForm}>edit</button>
         <button onClick={handleDelete}>delete</button>
-        {/* make a trash can icon for delete */}
-        <br/>
         {comments.length > 0 ? (
           <>
             <button className="comment-toggle-button" onClick={toggleComments}>
               {showComments ? "Hide Comments" : "+Comments"}
             </button>
-            {showComments && displayComments}
+            {showComments ? (
+              <>
+                {displayComments}{" "}
+                {seeForm ? (
+                  <CommentForm
+                    visit={visit}
+                    user={user}
+                    addComment={addComment}
+                  />
+                ) : (
+                  <button onClick={toggleCommentForm}>Leave Comment</button>
+                )}
+              </>
+            ) : null}
           </>
         ) : null}
       </div>
