@@ -12,16 +12,6 @@ import AuthContextProvider from '../contexts/AuthContext';
 
 
 function App() {
-  
-  // const navigate = useNavigate();
-
-  
-  //  const deleteVisit = (deletedVisit) => {
-  //    const editedVisits = user.visits.filter(
-  //      (visit) => visit.id !== deletedVisit.id
-  //    );
-  //    setUser((prevState) => ({ ...prevState, visits: editedVisits }));
-  //  };
 
   return (
     <>
@@ -33,7 +23,7 @@ function App() {
           <Route path="/signin" element={<SignIn  />} />
           <Route
             path="/profile"
-            element={<Profile  /*deleteVisit={deleteVisit}*/ />}
+            element={<Profile />}
           />
           <Route path="/trucks" element={<Trucks />} />
           <Route path="/trucks/:id" element={<TruckPage />} />

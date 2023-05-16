@@ -6,7 +6,7 @@ import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm";
 import { useAuth } from '../contexts/AuthContext'
 
-const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
+const VisitCard = ({ visit, removeVisit }) => {
   const [comments, setComments] = useState(visit.comments);
   const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
@@ -20,7 +20,6 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
       method: 'DELETE'
     }).then((resp) => {
       if (resp.ok) {
-        // deleteVisit(visit)
         removeVisit(visit)
        };
       })
@@ -42,8 +41,6 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   //    });
   //  };
 
-  // i need the user.id on the card so i can hide the edit and delete if the user.id
-  // is === to the visit.user_id 
 
   const displayComments = comments.map((comment) => (
     <CommentCard key={comment.id} visit={visit} comment={comment} deleteComment={deleteComment}/>
@@ -74,8 +71,9 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
         onClick={() => navigate(`/trucks/${visit.truck_id}`)}
       />
       <div className="card-content">
-        <p className='rate-container'>
-          <Rating visit={visit} /> <span className='card-date'>{visit.created_at}</span>
+        <p className="rate-container">
+          <Rating visit={visit} />{" "}
+          <span className="card-date">{visit.created_at}</span>
         </p>
         <div>
           {showForm ? (
@@ -92,8 +90,11 @@ const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
             </>
           )}{" "}
         </div>
-        <button onClick={toggleForm}>edit</button>
-        <button onClick={handleDelete}>delete</button>
+        {user.id === visit.user_id && 
+          <><p onClick={toggleForm}>✎</p>
+            <p onClick={handleDelete}>🗑️delete</p>
+          </>
+        }
         {comments.length > 0 ? (
           <>
             <button className="comment-toggle-button" onClick={toggleComments}>

@@ -25,7 +25,7 @@ const Profile = ({ deleteVisit }) => {
   if (!profile) return <h1>Loading..</h1>;
  
   const displayUserVisits = profile.visits.map((visit) => {
-    return <VisitCard key={visit.id} visit={visit} deleteVisit={deleteVisit} />
+    return <VisitCard key={visit.id} visit={visit} />
   });
 
   const displayFavorites = profile.favorites.map(f => {
@@ -33,9 +33,9 @@ const Profile = ({ deleteVisit }) => {
 
   return (
     <div>
-      <img src={user.avatar} alt="avatar" className="avatar" />
-      <h2>{user.username}</h2>
-      <h3>{user.tagline}</h3>
+      <img src={profile.avatar} alt="avatar" className="avatar" />
+      <h2>{profile.username}</h2>
+      <h3>{profile.tagline}</h3>
       <h2>My Favorite Trucks</h2>
       <div>{displayFavorites}</div>
       <div className="card-container">{displayUserVisits}</div>
