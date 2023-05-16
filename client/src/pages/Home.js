@@ -15,6 +15,7 @@ const Home = ({ user }) => {
         Sign up and Get ready to capture, share, and savor the diverse flavors
         that make Texas a food lover's paradise!
       </p>
+      <h2>{user.username}</h2>
       {user ? (
         <button onClick={() => navigate("/profile")}>Profile</button>
       ) : null}

@@ -73,10 +73,11 @@ const TruckPage = ({ user }) => {
         {truck.city}, {truck.state}
       </h3>
       <p>{truck.cuisine}</p>
-
-      <button onSubmit={addFavorite} type="submit">
-        {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
-      </button>
+      <form onSubmit={addFavorite}>
+        <button type="submit">
+          {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
+        </button>
+      </form>
       <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
         <img
           src="https://i.imgur.com/B5PO9U1.png"
@@ -94,7 +95,9 @@ const TruckPage = ({ user }) => {
         </div>
       ) : (
         <div>
-          <h2>{visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}</h2>
+          <h2>
+            {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
+          </h2>
           <VisitList visits={visits} />
         </div>
       )}
