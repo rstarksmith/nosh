@@ -4,13 +4,16 @@ import Rating from './Rating'
 import VisitEditForm from "./VisitEditForm"
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm";
+import { useAuth } from '../contexts/AuthContext'
 
-const VisitCard = ({ user, visit, deleteVisit, removeVisit }) => {
+const VisitCard = ({ visit, deleteVisit, removeVisit }) => {
   const [comments, setComments] = useState(visit.comments);
   const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
   const [seeForm, setSeeForm] = useState(false);
   const navigate = useNavigate()
+
+  const { user } = useAuth()
   
   const handleDelete = () => {
     fetch (`/visits/${visit.id}`, {

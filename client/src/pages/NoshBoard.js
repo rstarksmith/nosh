@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import VisitList from "../components/VisitList";
 
 
-const NoshBoard = ({ user }) => {
+const NoshBoard = () => {
   const [visits, setVisits] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -19,9 +19,7 @@ const NoshBoard = ({ user }) => {
        }
      });
    }, []);
-
    
-
   //  if (!visits) return <div>loading..</div>
 
    const removeVisit = (deletedVisit) => {
@@ -38,7 +36,7 @@ const NoshBoard = ({ user }) => {
       <h1>Nosh Board</h1>
       <div className="card-container">
         {isLoading && <h2>Loading...</h2>}
-        <VisitList user={user} removeVisit={removeVisit} visits={visits} />
+        <VisitList removeVisit={removeVisit} visits={visits} />
       </div>
     </div>
   );

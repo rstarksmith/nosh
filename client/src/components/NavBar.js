@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { NavLink, Link } from "react-router-dom";
+import { useAuth } from '../contexts/AuthContext';
 
 
-const NavBar = ({ logOut, user }) => {
+const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
+
+  const { user, logOut } = useAuth();
 
   const toggleNav = () => {
     setShowNav(!showNav);

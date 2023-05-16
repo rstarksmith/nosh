@@ -1,26 +1,15 @@
 // import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import VisitForm from "../components/VisitForm"
+import { useAuth } from "../contexts/AuthContext";
 import VisitCard from "../components/VisitCard";
 
-const Profile = ({ user, deleteVisit }) => {
-  
+const Profile = ({ deleteVisit }) => {
   const navigate = useNavigate()
 
+  const { user } = useAuth();
   
   if (!user) return <div>Loading..</div>;
-  // useEffect(() => {
-  //   fetch("/profile").then((resp) => {
-  //     if (resp.ok) {
-  //       resp.json().then((newUser) => {
-  //         setUser(newUser);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
  
-
 
   const displayUserVisits = user.visits.map((visit) => (
     <VisitCard key={visit.id} visit={visit} deleteVisit={deleteVisit} />

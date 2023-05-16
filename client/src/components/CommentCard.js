@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 
 const CommentCard = ({ comment, deleteComment }) => {
   const [errors, setErrors] = useState(null)
+
+  const { user } = useAuth();
+ 
 
   const handleDeleteComment = () => {
      fetch(`/comments/${comment.id}`, {
@@ -19,7 +23,7 @@ const CommentCard = ({ comment, deleteComment }) => {
   return (
     <div>
       <p>
-        {comment.commentor} {comment.reply}{" "}<img onClick={handleDeleteComment} className="trash" src="https://i.imgur.com/EmzBZP9.png" alt="trashcan"/>
+        {comment.commentor} {comment.reply}{" "}{user.id === comment.user_id && (<img onClick={handleDeleteComment} className="trash" src="https://i.imgur.com/EmzBZP9.png" alt="trashcan"/>)}
       </p>
     </div>
   );

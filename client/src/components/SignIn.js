@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
-const SignIn = ({ logInUser }) => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
+
+  const { logInUser } = useAuth()
 
   const handleSignIn = (e) => {
     e.preventDefault();

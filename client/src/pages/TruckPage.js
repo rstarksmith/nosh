@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import VisitList from '../components/VisitList'
 import VisitForm from '../components/VisitForm'
+import { useAuth } from '../contexts/AuthContext'
 
-const TruckPage = ({ user }) => {
+const TruckPage = () => {
   const [truck, setTruck] = useState("");
   const [visits, setVisits] = useState("");
   const [toggleBttn, setToggleBttn] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState(false);
   const { id } = useParams();
+  const { user } = useAuth();
 
   useEffect(() => {
     fetch(`/trucks/${id}`).then((resp) => {
@@ -43,6 +45,7 @@ const TruckPage = ({ user }) => {
       }
     });
   };
+  
 // need user access on this page to set the fav button upon navigating
   //  const setFav = (user) => {
   //   const isIt = user.favorites.some(favorite => favorite.truck_id === truckdata.id)
