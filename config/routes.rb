@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   delete "/closeaccount", to: "users#destroy"
   post "/signin", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+  post "rails/active_storage/direct_uploads", to: "direct_uploads#create"
   
 
   # Routing logic: fallback requests for React Router.

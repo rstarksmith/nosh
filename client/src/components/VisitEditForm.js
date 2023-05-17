@@ -23,8 +23,8 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
       body: JSON.stringify(updatedVisit),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then((updatedVisit) => {
-          editVisits(updatedVisit)
+        resp.json().then((visitResp) => {
+          editVisits(visitResp)
           toggleForm()
         })
       } else {

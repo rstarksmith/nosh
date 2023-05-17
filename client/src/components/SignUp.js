@@ -88,7 +88,7 @@ const SignUp = () => {
             type="file"
             name="avatar"
             value={avatar}
-            onChange={(e) => setAvatar(e.target.value)}
+            onChange={(e) => setAvatar(e.target.files[0])}
             // className=""
           />
           <br />

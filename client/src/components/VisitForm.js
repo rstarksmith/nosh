@@ -39,6 +39,10 @@ const VisitForm = ({ truck }) => {
         });
   }
 
+  const uploadFile = (photo, data) => {
+
+  }
+
   return (
     <div>
       <form>
@@ -72,7 +76,7 @@ const VisitForm = ({ truck }) => {
           type="file"
           name="photo"
           value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
+          onChange={(e) => setPhoto(e.target.files[0])}
           className="input"
         />
         <br />

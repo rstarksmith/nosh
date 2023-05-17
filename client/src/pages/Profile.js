@@ -22,6 +22,8 @@ const Profile = ({ deleteVisit }) => {
     });
   }, []);
 
+  // const editable = true
+
   if (!user) return <h1>Not Authorized</h1>
   if (!profile) return <h1>Loading..</h1>;
 
