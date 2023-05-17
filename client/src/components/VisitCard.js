@@ -5,12 +5,11 @@ import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm";
 import { useAuth } from '../contexts/AuthContext'
 
-const VisitCard = ({ visit, removeVisit, editVisits }) => {
+const VisitCard = ({ visit, removeVisit, editVisits, editable }) => {
   const [comments, setComments] = useState(visit.comments);
   const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
   const [seeForm, setSeeForm] = useState(false);
-  const [editable, setEditable] = useState(false)
   const navigate = useNavigate()
 
   const { user } = useAuth()
@@ -119,12 +118,14 @@ const VisitCard = ({ visit, removeVisit, editVisits }) => {
             </>
           )}
         </div>
-        {user.id === visit.user_id && (
-          <>
-            <p onClick={toggleForm}>✎</p>
-            <p onClick={handleDelete}>delete</p>
-          </>
-        )}
+        {editable && (<div>
+          {user.id === visit.user_id && (
+            <>
+              <p onClick={toggleForm}>edit</p>
+              <p onClick={handleDelete}>delete</p>
+            </>
+          )}
+        </div>)}
         <button className="comment-toggle-button" onClick={toggleComments}>
           {showComments ? "Comments" : "Comments"}
         </button>
@@ -133,8 +134,12 @@ const VisitCard = ({ visit, removeVisit, editVisits }) => {
             {displayComments}
             {seeForm ? (
               <>
-              <CommentForm visit={visit} user={user} addComment={addComment} />
-              <button onClick={toggleCommentForm}>cancel</button>
+                <CommentForm
+                  visit={visit}
+                  user={user}
+                  addComment={addComment}
+                />
+                <button onClick={toggleCommentForm}>cancel</button>
               </>
             ) : (
               <button onClick={toggleCommentForm}>Leave Comment</button>

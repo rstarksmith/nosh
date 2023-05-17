@@ -1,6 +1,6 @@
 class VisitSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :rating, :caption, :exclusive, :user_id, :truck_id,  :created_at, :photo, :author, :comments,
+  attributes :id, :rating, :caption, :exclusive, :user_id, :truck_id,  :created_at, :photo, :author, :comments, 
   
   def photo
     rails_blob_path(object.photo, only_path: true) if object.photo.attached?
@@ -16,6 +16,5 @@ class VisitSerializer < ActiveModel::Serializer
   end
 
   has_many :comments
-
-
+  
 end
