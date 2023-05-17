@@ -32,20 +32,17 @@ const CommentForm = ({ visit, addComment }) => {
     <div>
       {errors ? {errors} : null }
       <form onSubmit={handleAddComment}>
-        <label>Reply: </label>
         <input
           type="text"
           name="reply"
           value={reply}
           onChange={(e) => setReply(e.target.value)}
-          placeholder="Yummy! Great photo..."
+          placeholder={`Comment for ${visit.author}..`}
           className="input"
           autoComplete="off"
         />
-        <br />
-        <button type="submit">Post Reply</button>
+        <button type="submit">Post</button>
       </form>
-      <button>Cancel</button>
     </div>
   );
 }

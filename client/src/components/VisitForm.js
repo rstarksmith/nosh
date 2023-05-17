@@ -8,7 +8,6 @@ const VisitForm = ({ truck }) => {
   const [errors, setErrors] = useState(null)
 
 
-
   const handleAddVisit = (e) => {
     e.preventDefault()
       const formData = {

@@ -21,7 +21,9 @@ const Home = () => {
       </p>
       {user ? (
         <button onClick={() => navigate("/profile")}>Profile</button>
-      ) : null}
+      ) : (
+        <button onClick={() => navigate("/signup")}>Sign Up</button>
+      )}
     </div>
   );
 }

@@ -3,7 +3,7 @@ class VisitsController < ApplicationController
 
     #GET /noshboard
     def index 
-        visits = Visit.all
+        visits = Visit.all.shuffle()
         render json: visits, status: :ok
     end
 
@@ -16,7 +16,7 @@ class VisitsController < ApplicationController
     #PATCH /visits/:id 
     def update 
         @visit.update!(visit_params)
-        render json: visit, status: :ok
+        render json: @visit, status: :ok
     end
 
     #DELETE /visits/:id 
@@ -32,7 +32,7 @@ class VisitsController < ApplicationController
     end
 
     def visit_params 
-        params.permit(:rating, :caption, :photo, :truck_id, :photo)
+        params.permit(:rating, :caption, :exclusive, :truck_id, :photo)
     end
 
     #auth for patch/delete visit

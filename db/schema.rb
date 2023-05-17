@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_02_172813) do
+ActiveRecord::Schema.define(version: 2023_05_16_200927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2023_05_02_172813) do
   create_table "visits", force: :cascade do |t|
     t.integer "rating"
     t.string "caption"
-    t.boolean "private"
+    t.boolean "exclusive"
     t.integer "user_id"
     t.integer "truck_id"
     t.datetime "created_at", precision: 6, null: false

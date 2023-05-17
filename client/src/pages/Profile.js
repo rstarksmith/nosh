@@ -5,6 +5,7 @@ import VisitCard from "../components/VisitCard";
 
 const Profile = ({ deleteVisit }) => {
   const [profile, setProfile] = useState(null)
+  // should i hav a favs state?
   const [error, setError] = useState(null)
   const navigate = useNavigate()
   const { user } = useAuth();
@@ -31,14 +32,19 @@ const Profile = ({ deleteVisit }) => {
   const displayFavorites = profile.favorites.map(f => {
   return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
 
+  
   return (
     <div>
       <img src={profile.avatar} alt="avatar" className="avatar" />
       <h2>{profile.username}</h2>
       <h3>{profile.tagline}</h3>
-      <h2>My Favorite Trucks</h2>
-      <div>{displayFavorites}</div>
-      <div className="card-container">{displayUserVisits}</div>
+      <div>
+        <h2>My Favorite Trucks</h2>
+        <div>{displayFavorites}</div>
+      </div>
+      <div className="card-container">
+        {displayUserVisits}
+        </div>
     </div>
   );
 }

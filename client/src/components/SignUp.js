@@ -77,17 +77,17 @@ const SignUp = () => {
             name="tagline"
             value={tagline}
             onChange={(e) => setTagline(e.target.value)}
-            placeholder="tagline..."
+            placeholder="Tagline..."
             className="input"
           />
           <br />
+          <label>Profile Picture:</label>
           <input
             type="file"
             name="avatar"
             value={avatar}
             onChange={(e) => setAvatar(e.target.value)}
-            placeholder="tagline..."
-            className="avatar png.."
+            // className=""
           />
           <br />
           <button className="bttn" type="submit">

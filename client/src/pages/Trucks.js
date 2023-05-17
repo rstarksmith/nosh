@@ -3,6 +3,8 @@ import TruckList from '../components/TruckList'
 
 const FoodTrucks = () => {
   const [trucks, setTrucks] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filterBy, setFilterBy] = useState("All");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false)
 
@@ -18,22 +20,50 @@ const FoodTrucks = () => {
      });
   }, []);
 
+  const handleFilter = (e) => {
+    setFilterBy(e.target.value);
+  };
+
+  const trucksToDisplay = trucks.filter(t => {
+    if(filterBy === "All") {
+      return trucks
+    } else {
+      return (t.city === filterBy)}})
+
+  const displayedTrucks = trucksToDisplay.filter((truck) => {
+    return truck.name.toLowerCase().includes(search.toLowerCase());
+  });
+
  if (error) return <h1>{error}</h1>
  
   return (
     <div>
       <h1>Texas Food Trucks</h1>
-      <div>
-        <button>Fort Worth</button>
-        <button>Dallas</button>
-        <button>Austin</button>
-        <button>Houston</button>
-        <button>All</button>
+      <label>Search: </label>
+      <input
+        className="input"
+        autoComplete="off"
+        id="search"
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Truck Name..."
+        type="text"
+        value={search}
+      />
+      <div className="filter-container">
+        <label>City: </label>
+        <select className="dropdown" name="filter" onChange={handleFilter}>
+          <option className="drop-op" value="All">
+            All 
+          </option>
+          <option value="Fort Worth">Fort Worth</option>
+          <option value="Dallas">Dallas</option>
+          <option value="Austin">Austin</option>
+          <option value="Houston">Houston</option>
+        </select>
       </div>
-      <div>search bar</div>
       <div className="truck-card-container">
         {isLoading && <h2>Loading...</h2>}
-        <TruckList trucks={trucks} />
+        <TruckList trucks={displayedTrucks} />
       </div>
     </div>
   );

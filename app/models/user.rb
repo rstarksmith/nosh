@@ -4,8 +4,8 @@ class User < ApplicationRecord
     validates :password, confirmation: true, length: {in: 3..20}, on: [:create, :show]
     validates :password_confirmation, presence: true, on: :create
     validates :tagline, length: { in: 2..30}
-    # validates_presence_of :avatar, :tagline  
-
+    validates :tagline, presence: true
+    
     has_secure_password
 
     has_one_attached :avatar

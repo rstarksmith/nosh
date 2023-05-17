@@ -71,23 +71,25 @@ const TruckPage = () => {
       <div>
         <img src={truck.image} alt={truck.name} />
       </div>
-      <h1>{truck.name}</h1>
-      <h3>
-        {truck.city}, {truck.state}
-      </h3>
-      <p>{truck.cuisine}</p>
+      <div>
+        <h1>{truck.name}</h1>{" "}
+        <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://i.imgur.com/B5PO9U1.png"
+            className="yelp-icon"
+            alt="yelp link"
+          />
+        </a>
+        <h3>
+          {truck.city}, {truck.state}
+        </h3>
+        <p>{truck.cuisine}</p>
+      </div>
       <form onSubmit={addFavorite}>
         <button type="submit">
           {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
         </button>
       </form>
-      <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
-        <img
-          src="https://i.imgur.com/B5PO9U1.png"
-          className="yelp-icon"
-          alt="yelp link"
-        />
-      </a>
       <button onClick={toggleForm}>
         {showForm ? "Cancel" : "Share Visit"}
       </button>
