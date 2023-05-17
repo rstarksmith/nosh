@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "/signin", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  post "rails/active_storage/direct_uploads", to: "direct_uploads#create"
+  post "/direct_uploads/presigned_url", to: "direct_uploads#presigned_url"
   
 
   # Routing logic: fallback requests for React Router.

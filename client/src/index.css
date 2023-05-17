@@ -82,10 +82,10 @@ code {
 
 
 
-
 /* Profile */
 .avatar {
   border-radius: 50%;
+  height: 250px;
   width: 250px;
 }
 

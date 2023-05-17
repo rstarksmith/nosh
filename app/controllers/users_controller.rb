@@ -14,7 +14,9 @@ class UsersController < ApplicationController
     # POST /signup
     #how to add avatar
     def create 
+        # activerecord transaction
         user = User.create!(user_params)
+        user.avatar.attach(params[:avatar_signed_id])
         session[:user_id] = user.id
         render json: user, status: :created
     end

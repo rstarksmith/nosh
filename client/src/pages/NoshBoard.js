@@ -18,24 +18,6 @@ const NoshBoard = () => {
        }
      });
    }, []);
-
-   const removeVisit = (deletedVisit) => {
-    const reviseVisits = visits.filter(
-      (visit) => visit.id !== deletedVisit.id
-    );
-    setVisits(reviseVisits);
-   }
-
-   const editVisits = (updatedVisit) => {
-    const newVisitsList = visits.map(v => {
-      if(v.id === updatedVisit.id) {
-        return updatedVisit
-      } else {
-        return v
-      }
-    })
-    setVisits(newVisitsList)
-   }
   
   if (error) return <h1>{error}</h1>
   
@@ -44,7 +26,7 @@ const NoshBoard = () => {
       <h1>Nosh Board</h1>
       {isLoading && <h2>Loading...</h2>}
       <div className="card-container">
-        <VisitList removeVisit={removeVisit} visits={visits} editVisits={editVisits} />
+        <VisitList visits={visits}  />
       </div>
     </div>
   );

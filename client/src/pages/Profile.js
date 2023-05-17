@@ -6,6 +6,7 @@ import VisitCard from "../components/VisitCard";
 const Profile = ({ deleteVisit }) => {
   const [profile, setProfile] = useState(null)
   // should i hav a favs state?
+  const [editable, setEditable] = useState(true)
   const [error, setError] = useState(null)
   const navigate = useNavigate()
   const { user } = useAuth();
@@ -22,31 +23,56 @@ const Profile = ({ deleteVisit }) => {
     });
   }, []);
 
-  // const editable = true
+  const removeVisit = (deletedVisit) => {
+    const revisedVisits = profile.visits.filter(
+      (visit) => visit.id !== deletedVisit.id
+    );
+    setProfile((prevState) => ({ ...prevState, visits: revisedVisits }));
+  };
+
+  const editVisits = (updatedVisit) => {
+    const newVisitsList = profile.visits.map((v) => {
+      if (v.id === updatedVisit.id) {
+        return updatedVisit;
+      } else {
+        return v;
+      }
+    });
+    setProfile((prevState) => ({ ...prevState, visits: newVisitsList }));
+  };
 
   if (!user) return <h1>Not Authorized</h1>
   if (!profile) return <h1>Loading..</h1>;
  
   const displayUserVisits = profile.visits.map((visit) => {
-    return <VisitCard key={visit.id} visit={visit} />
+    return (
+      <VisitCard
+        key={visit.id}
+        editable={editable}
+        removeVisit={removeVisit}
+        editVisits={editVisits}
+        visit={visit}
+      />
+    );
   });
 
   const displayFavorites = profile.favorites.map(f => {
   return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
 
-  
   return (
     <div>
       <img src={profile.avatar} alt="avatar" className="avatar" />
       <h2>{profile.username}</h2>
       <h3>{profile.tagline}</h3>
       <div>
-        <h2>My Favorite Trucks</h2>
-        <div>{displayFavorites}</div>
+        {profile.favorites.length > 0 && (
+          <>
+            <h2>My Favorite Trucks</h2>
+            <div>{displayFavorites}</div>
+          </>
+        )}
       </div>
-      <div className="card-container">
-        {displayUserVisits}
-        </div>
+      <div className="card-container">{displayUserVisits}</div>
     </div>
   );
 }
