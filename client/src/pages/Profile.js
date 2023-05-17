@@ -5,7 +5,7 @@ import VisitCard from "../components/VisitCard";
 
 const Profile = ({ deleteVisit }) => {
   const [profile, setProfile] = useState(null)
-  const [editable, setEditable] = useState(true);
+  // should i hav a favs state?
   const [error, setError] = useState(null)
   const navigate = useNavigate()
   const { user } = useAuth();
@@ -26,25 +26,9 @@ const Profile = ({ deleteVisit }) => {
 
   if (!user) return <h1>Not Authorized</h1>
   if (!profile) return <h1>Loading..</h1>;
-
-  const removeVisit = (deletedVisit) => {
-    const revisedVisits = profile.visits.filter((visit) => visit.id !== deletedVisit.id);
-    setProfile(prevState => ({ ...prevState, visits: revisedVisits}));
-  };
-
-  const editVisits = (updatedVisit) => {
-    const newVisitsList = profile.visits.map((v) => {
-      if (v.id === updatedVisit.id) {
-        return updatedVisit;
-      } else {
-        return v;
-      }
-    });
-    setProfile(prevState => ({...prevState, visits: newVisitsList}));
-  };
  
   const displayUserVisits = profile.visits.map((visit) => {
-    return <VisitCard key={visit.id} editable={editable} removeVisit={removeVisit} editVisits={editVisits} visit={visit} />
+    return <VisitCard key={visit.id} visit={visit} />
   });
 
   const displayFavorites = profile.favorites.map(f => {

@@ -9,7 +9,6 @@ const TruckPage = () => {
   const [visits, setVisits] = useState("");
   const [toggleBttn, setToggleBttn] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [editable, setEditable] = useState(false)
   const [error, setError] = useState(false);
   const { id } = useParams();
   const { user } = useAuth();
@@ -104,7 +103,7 @@ const TruckPage = () => {
           <h2>
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
           </h2>
-          <VisitList visits={visits} editable={editable}/>
+          <VisitList visits={visits} />
         </div>
       )}
     </div>

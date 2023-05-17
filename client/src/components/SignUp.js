@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
 
 
 const SignUp = () => {
@@ -10,7 +9,6 @@ const SignUp = () => {
   const [tagline, setTagline] = useState("");
   const [avatar, setAvatar] = useState("");
   // const [errors, setErrors] = useState(false);
-  const { logInUser } = useAuth()
 
   const navigate = useNavigate();
 

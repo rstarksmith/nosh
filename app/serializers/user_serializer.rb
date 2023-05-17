@@ -9,4 +9,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :visits
   has_many :favorites 
   
+  
 end
