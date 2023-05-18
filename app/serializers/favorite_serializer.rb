@@ -4,5 +4,7 @@ class FavoriteSerializer < ActiveModel::Serializer
   def fav 
     object.truck.name
   end
+
+  
   
 end

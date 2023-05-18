@@ -13,3 +13,5 @@ class TrucksController < ApplicationController
     end
 
 end
+
+

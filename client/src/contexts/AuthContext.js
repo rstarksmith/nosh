@@ -5,7 +5,6 @@ export const AuthContext = createContext()
 
 const AuthContextProvider = (props) => {
     const [user, setUser] = useState(null)
-    const [avatar, setAvatar] = useState(null);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -21,7 +20,6 @@ const AuthContextProvider = (props) => {
     const logInUser = (userObj) => {
       console.log(userObj);
       setUser(userObj);
-      setAvatar(userObj.avatar);
       navigate("/");
     };
 
@@ -31,14 +29,14 @@ const AuthContextProvider = (props) => {
       }).then((resp) => {
         if (resp.ok) {
           setUser(null);
-          setAvatar(null);
+      
         }
       });
       navigate("/");
     };
 
   return (
-    <AuthContext.Provider value={ {user, avatar, logOut, logInUser} }>
+    <AuthContext.Provider value={ {user, logOut, logInUser} }>
         {props.children}
     </AuthContext.Provider>
   )

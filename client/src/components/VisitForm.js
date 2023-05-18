@@ -1,51 +1,92 @@
 import { useState } from "react"
+import fileChecksum from "../utils/checksum";
 
-const VisitForm = ({ truck }) => {
+const VisitForm = ({ truck, toggleForm, addToVisits }) => {
   const [rating, setRating] = useState(0)
   const [caption, setCaption] = useState("")
   const [exclusive, setExclusive] = useState(false)
   const [photo, setPhoto] = useState("")
+  const [fileData, setFileData] = useState({});
+  const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState(null)
 
 
-  const handleAddVisit = (e) => {
-    e.preventDefault()
-      const formData = {
+   const handleAddVisit = (e) => {
+     setDisabled(true);
+     e.preventDefault();
+     fetch("/visits", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({
         rating,
         caption,
         exclusive,
         truck_id: truck.id,
-        photo,
+        photo_signed_id: fileData.signed_id,
+       }),
+     }).then((resp) => {
+       if (resp.ok) {
+         resp.json().then((resp) => {
+          addToVisits(resp)
+          toggleForm()});
+       } else {
+         // resp.json().then((resp) => setErrors(resp.errors));
+         setDisabled(false);
+       }
+     });
+   };
+
+  const directUploadFile = (payload, file) => {
+    fetch(payload.presigned_url, {
+      method: "PUT",
+      headers: payload.headers,
+      body: file,
+    }).then((resp) => {
+      if (resp.ok) {
+        setDisabled(false);
+        setFileData({ signedId: payload.signed_id, fileName: file.name });
+      }
+    });
+  };
+
+  const onFileSelect = async (e) => {
+    setDisabled(true);
+    const file = e.target.files[0];
+
+    fileChecksum(file).then((checksum) => {
+      const payload = {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        checksum,
       };
-      fetch("/visits", {
+
+      fetch("/direct_uploads/presigned_url", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
-      })
-        .then((resp) => {
-          if (resp.ok) {
-            resp.json().then((newVisit) => {
-              console.log(newVisit);
-              setRating(0);
-              setCaption("");
-              setExclusive("");
-              setPhoto("");
-            });
-          } else {
-            resp.json().then((resp) => setErrors(resp.errors));
-          }
-        });
-  }
-
-  const uploadFile = (photo, data) => {
-
-  }
+        body: JSON.stringify(payload),
+      }).then((resp) => {
+        if (resp.ok) {
+          resp.json().then((resp) => {
+            directUploadFile(resp, file);
+          });
+        } else {
+          // tell user file upload failed
+          // resp.json().then((resp) => setErrors(resp.errors));
+          // setDisabled(false);
+        }
+      });
+    });
+    return file;
+  };
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleAddVisit}>
         <label>Rate: </label>
         <select
           className="input"
@@ -71,12 +112,14 @@ const VisitForm = ({ truck }) => {
           autoComplete="off"
         />
         <br />
-        <label>Photo: </label>
+        <label htmlFor="button-file">Photo: </label>
         <input
           type="file"
+          id="button-file"
+          title="ghdfhdfh"
           name="photo"
           value={photo}
-          onChange={(e) => setPhoto(e.target.files[0])}
+          onChange={onFileSelect}
           className="input"
         />
         <br />
@@ -88,9 +131,10 @@ const VisitForm = ({ truck }) => {
         />
         <label> Do not share</label>
         <br />
-        <button type="submit" onSubmit={handleAddVisit}>Post Visit</button>
+        <button type="submit" disabled={disabled}>
+          Post Visit
+        </button>
       </form>
-      
     </div>
   );
 }

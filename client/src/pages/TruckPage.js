@@ -59,7 +59,10 @@ const TruckPage = () => {
   //      setToggleBttn(myFav);
   //    }
   //  };
-
+  
+  const addToVisits = (newVisit) => {
+    setVisits(prevState => [newVisit, ...prevState])
+  }
   const toggleForm = () => {
     setShowForm(!showForm);
   };
@@ -97,7 +100,7 @@ const TruckPage = () => {
       {showForm ? (
         <div>
           <h2>Share Your Visit: </h2>
-          <VisitForm truck={truck} />
+          <VisitForm truck={truck} toggleForm={toggleForm} addToVisits={addToVisits} />
         </div>
       ) : (
         <div>

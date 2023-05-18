@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         user.avatar.attach(params[:avatar_signed_id])
         session[:user_id] = user.id
         render json: user, status: :created
-    end
+    end 
 
     #can I patch avatar and tagline?
     #PATCH /user/:id

@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-    #GET /favorites
+    # #GET /favorites
     # def index 
     #     favs = current_user.favorites.all 
     #     render json: favs, status: :ok

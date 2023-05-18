@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
     before_action :find_comment, :authorize_delete, only: :destroy
     
-  
     #POST /visits/:visit_id/comments
     def create 
         comment = current_user.comments.create!(comment_params)
         render json: comment, status: :created
     end
-
+    
     #DELETE /comments/:id
     def destroy 
         @comment.destroy

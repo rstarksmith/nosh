@@ -63,12 +63,12 @@ const SignUp = () => {
     
     fileChecksum(file)
     .then((checksum) => {
-        const payload = {
-          name: file.name,
-          type: file.type,
-          size: file.size,
-          checksum,
-        };
+      const payload = {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        checksum,
+      };
 
         fetch("/direct_uploads/presigned_url", {
           method: "POST",
@@ -93,11 +93,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <img
-        src=""
-        alt="nosh.up logo"
-        className="form-logo"
-      />
+      <img src="" alt="nosh.up logo" className="form-logo" />
       <div className="form-block">
         <h3>Sign up for a free account</h3>
         <form onSubmit={handleSignUp}>
@@ -145,6 +141,7 @@ const SignUp = () => {
             onChange={onFileSelect}
             // className=""
           />
+          
           <br />
           <button className="bttn" type="submit" disabled={disabled}>
             Sign up

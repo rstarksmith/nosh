@@ -3,13 +3,14 @@ class VisitsController < ApplicationController
 
     #GET /noshboard
     def index 
-        visits = Visit.all.shuffle()
+        visits = Visit.select {|visit| visit.exclusive == false }
         render json: visits, status: :ok
     end
 
     #POST /visits
     def create 
         visit = current_user.visits.create!(visit_params)
+        visit.photo.attach(params[:photo_signed_id])
         render json: visit, status: :created
     end
 
