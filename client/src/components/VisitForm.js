@@ -24,13 +24,14 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
         caption,
         exclusive,
         truck_id: truck.id,
-        photo_signed_id: fileData.signed_id,
+        photo_signed_id: fileData.signedId,
        }),
      }).then((resp) => {
        if (resp.ok) {
-         resp.json().then((resp) => {
+        resp.json().then((resp) => {
           addToVisits(resp)
-          toggleForm()});
+          toggleForm()
+        });
        } else {
          resp.json().then((resp) => setErrors(resp.errors));
          setDisabled(false);
