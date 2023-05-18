@@ -3,7 +3,7 @@ class VisitsController < ApplicationController
 
     #GET /noshboard
     def index 
-        visits = Visit.select {|visit| visit.exclusive == false }
+        visits = Visit.where(exclusive: false)
         render json: visits, status: :ok
     end
 
