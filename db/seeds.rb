@@ -12,37 +12,37 @@
 
 james = User.create(username: "James", password: "1234", password_confirmation: "1234", tagline: "Good food. Good mood.")
 james.avatar.attach(
-    io: File.open('app/public/avatars/avatar1.png'),
+    io: File.open('./public/avatars/avatar1.png'),
     filename: 'avatar1.png',
     content_type: 'application/png'
 )
 jacobmunch = User.create(username: "jacobmunch", password: "1234", password_confirmation: "1234", tagline: "Get in my belly")
 jacobmunch.avatar.attach(
-    io: File.open('app/public/avatars/avatar2.png'),
+    io: File.open('./public/avatars/avatar2.png'),
     filename: 'avatar2.png',
     content_type: 'application/png'
 )
 burgerman = User.create(username: "burgerman", password: "1234", password_confirmation: "1234", tagline: "Meet you at the truck")
 burgerman.avatar.attach(
-    io: File.open('app/public/avatars/avatar3.png'),
+    io: File.open('./public/avatars/avatar3.png'),
     filename: 'avatar3.png',
     content_type: 'application/png'
 )
 foodie = User.create(username: "foodie", password: "1234", password_confirmation: "1234", tagline: "Wake up. Eat. Repeat.")
 foodie.avatar.attach(
-    io: File.open('../public/avatars/avatar4.png'),
+    io: File.open('./public/avatars/avatar4.png'),
     filename: 'avatar4.png',
     content_type: 'application/png'
 )
 jess = User.create(username: "jess", password: "1234", password_confirmation: "1234", tagline: "Foodie | Photographer")
 jess.avatar.attach(
-    io: File.open('../public/avatars/avatar5.png'),
+    io: File.open('./public/avatars/avatar5.png'),
     filename: 'avatar5.png',
     content_type: 'application/png'
 )
 raya = User.create(username: "raya", password: "1234", password_confirmation: "1234", tagline: "Everyday is taco tuesday")
 raya.avatar.attach(
-    io: File.open('../public/avatars/avatar6.png'),
+    io: File.open('./public/avatars/avatar6.png'),
     filename: 'avatar6.png',
     content_type: 'application/png'
 )
@@ -89,103 +89,103 @@ t30 = Truck.create(name: "The Taco King", image: "https://s3-media0.fl.yelpcdn.c
 
 v1 = Visit.create(rating: 3, caption: "yum.", exclusive: false, user_id: james.id, truck_id: t1.id )
 v1.photo.attach(
-    io: File.open('../public/photos/visit1.png'),
+    io: File.open('./public/photos/visit1.png'),
     filename: 'visit1.png',
     content_type: 'application/png'
 )
 v2 = Visit.create(rating: 3, caption: "This made my day", exclusive: false, user_id: james.id, truck_id: t2.id )
 v2.photo.attach(
-    io: File.open('../public/photos/visit2.png'),
+    io: File.open('./public/photos/visit2.png'),
     filename: 'visit2.png',
     content_type: 'application/png'
 )
 v3 = Visit.create(rating: 2, caption: "Eggcellent", exclusive: false, user_id: james.id, truck_id: t3.id )
 v3.photo.attach(
-    io: File.open('../public/photos/visit3.png'),
+    io: File.open('./public/photos/visit3.png'),
     filename: 'visit3.png',
     content_type: 'application/png'
 )
 v4 = Visit.create(rating: 2, caption: "hot diggity dawg today", exclusive: false, user_id: james.id, truck_id: t4.id )
 v4.photo.attach(
-    io: File.open('../public/photos/visit4.png'),
+    io: File.open('./public/photos/visit4.png'),
     filename: 'visit4.png',
     content_type: 'application/png'
 )
 v5 = Visit.create(rating: 3, caption: "FRESH", exclusive: true, user_id: james.id, truck_id: t5.id )
 v5.photo.attach(
-    io: File.open('../public/photos/visit5.png'),
+    io: File.open('./public/photos/visit5.png'),
     filename: 'visit5.png',
     content_type: 'application/png'
 )
 v6 = Visit.create(rating: 3, caption: "you had me at pickles", exclusive: false, user_id: james.id, truck_id: t7.id )
 v6.photo.attach(
-    io: File.open('../public/photos/visit6.png'),
+    io: File.open('./public/photos/visit6.png'),
     filename: 'visit6.png',
     content_type: 'application/png'
 )
 v7 = Visit.create(rating: 3, caption: "I scream beary good", exclusive: false, user_id: james.id, truck_id: t11.id )
 v7.photo.attach(
-    io: File.open('../public/photos/visit7.png'),
+    io: File.open('./public/photos/visit7.png'),
     filename: 'visit7.png',
     content_type: 'application/png'
 )
 v8 = Visit.create(rating: 1, caption: "Classic", exclusive: false, user_id: james.id, truck_id: t16.id )
 v8.photo.attach(
-    io: File.open('../public/photos/visit8.png'),
+    io: File.open('./public/photos/visit8.png'),
     filename: 'visit8.png',
     content_type: 'application/png'
 )
 v9 = Visit.create(rating: 2, caption: "My idea of a good time, is a food truck stop", exclusive: false, user_id: foodie.id, truck_id: t17.id )
 v9.photo.attach(
-    io: File.open('../public/photos/visit9.png'),
+    io: File.open('./public/photos/visit9.png'),
     filename: 'visit9.png',
     content_type: 'application/png'
 )
 v10 = Visit.create(rating: 2, caption: "Taco Tuesday", exclusive: false, user_id: foodie.id, truck_id: t20.id )
 v10.photo.attach(
-    io: File.open('../public/photos/visit10.png'),
+    io: File.open('./public/photos/visit10.png'),
     filename: 'visit10.png',
     content_type: 'application/png'
 )
 v11 = Visit.create(rating: 3, caption: "Lunch Today", exclusive: false, user_id: foodie.id, truck_id: t21.id )
 v11.photo.attach(
-    io: File.open('../public/photos/visit11.png'),
+    io: File.open('./public/photos/visit11.png'),
     filename: 'visit11.png',
     content_type: 'application/png'
 )
 v12 = Visit.create(rating: 2, caption: "Artwork on the truck was awesome, the food is pretty good too",exclusive: false, user_id: jacobmunch.id, truck_id: t22.id )
 v12.photo.attach(
-    io: File.open('../public/photos/visit12.png'),
+    io: File.open('./public/photos/visit12.png'),
     filename: 'visit12.png',
     content_type: 'application/png'
 )
 v13 = Visit.create(rating: 2, caption: "It tastes better than it looks", exclusive: false, user_id: jacobmunch.id, truck_id: t23.id )
 v13.photo.attach(
-    io: File.open('../public/photos/visit13.png'),
+    io: File.open('./public/photos/visit13.png'),
     filename: 'visit13.png',
     content_type: 'application/png'
 )
 v14 = Visit.create(rating: 3, caption: "REPEAT", exclusive: false, user_id: jess.id, truck_id: t25.id )
 v14.photo.attach(
-    io: File.open('../public/photos/visit14.png'),
+    io: File.open('./public/photos/visit14.png'),
     filename: 'visit14.png',
     content_type: 'application/png'
 )
 v15 = Visit.create(rating: 3, caption: "Huge servings | Taste on point", exclusive: true, user_id: jess.id, truck_id: t26.id )
 v15.photo.attach(
-    io: File.open('../public/photos/visit15.png'),
+    io: File.open('./public/photos/visit15.png'),
     filename: 'visit15.png',
     content_type: 'application/png'
 )
 v16 = Visit.create(rating: 3, caption: "Fresh.", exclusive: false, user_id: raya.id, truck_id: t27.id )
 v16.photo.attach(
-    io: File.open('../public/photos/visit16.png'),
+    io: File.open('./public/photos/visit16.png'),
     filename: 'visit16.png',
     content_type: 'application/png'
 )
 v17 = Visit.create(rating: 1, caption: "Basic. But they were good.", exclusive: false, user_id: burgerman.id, truck_id: t28.id )
 v17.photo.attach(
-    io: File.open('../public/photos/visit17.png'),
+    io: File.open('./public/photos/visit17.png'),
     filename: 'visit17.png',
     content_type: 'application/png'
 )
