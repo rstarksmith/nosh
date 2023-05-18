@@ -6,14 +6,14 @@ Rails.application.routes.draw do
 
   resources :comments, only: :destroy
 
-  get "/noshboard", to: "visits#index"
-
   resources :favorites, only: [ :create, :destroy]
   resources :trucks, only: [:index, :show]
 
+  get "/noshboard", to: "visits#index"
   get "profile", to: "users#profile"
   get "/auth", to: "users#show"
   post "/signup", to: "users#create"
+  patch "/users/:id", to: "users#update"
   delete "/closeaccount", to: "users#destroy"
   post "/signin", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

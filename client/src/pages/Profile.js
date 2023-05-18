@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import VisitCard from "../components/VisitCard";
+import ProfileForm from '../components/ProfileForm';
 
 const Profile = ({ deleteVisit }) => {
   const [profile, setProfile] = useState(null)
+  const [showForm, setShowForm] = useState(false)
   // should i hav a favs state?
   // const [editable, setEditable] = useState(true)
   const [error, setError] = useState(null)
@@ -59,13 +61,31 @@ const Profile = ({ deleteVisit }) => {
   });
 
   const displayFavorites = profile.favorites.map(f => {
-  return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
+    return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
+
+  
+  const clickHandler = (event) => {
+    if (event.detail === 2) {
+      setShowForm(!showForm);
+      // stretch update avatar photo too
+    }
+  };
+
+  const handleTagEdit = (editedTag) => {
+    setProfile(prevState => ({...prevState, tagline: editedTag }))
+  }
 
   return (
     <div>
+      {error && { error }}
       <img src={profile.avatar} alt="avatar" className="avatar" />
       <h2>{profile.username}</h2>
-      <h3>{profile.tagline}</h3>
+      {showForm ? (
+        <ProfileForm handleTagEdit={handleTagEdit} profile={profile} setShowForm={setShowForm} />
+      ) : (
+        <h3 onClick={clickHandler}>{profile.tagline}</h3>
+      )}
+
       <div>
         {profile.favorites.length > 0 && (
           <>

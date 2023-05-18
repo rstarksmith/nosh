@@ -23,10 +23,10 @@ class UsersController < ApplicationController
 
     #can I patch avatar and tagline?
     #PATCH /user/:id
-    # def update
-    #     current_user.update!(user_update_params)
-    #     render json: current_user, status: :ok
-    # end
+    def update
+        current_user.update!(user_update_params)
+        render json: current_user, status: :ok
+    end
 
     # #DELETE /closeaccount
     # def destroy
@@ -39,6 +39,10 @@ class UsersController < ApplicationController
 
     def user_params 
         params.permit(:username, :password, :password_confirmation, :tagline, :avatar)
+    end
+
+     def user_update_params
+        params.permit(:tagline)
     end
 
 end

@@ -17,7 +17,7 @@ Photo sharing platform for Texas food truck enthusiasts!
 - **Sign up**  -  Join community by signing up with a new user account
 - **Sign in**  - Using secure password with confirmation and sign out
 - **Food Trucks**  -  Browse and search for food trucks by name or city
-- **Share | Truck Page**  -  Navigate to a truck page to post your experience 
+- **Truck Page | Share**  -  Navigate to a truck page to post your experience 
 - **Nosh Board** - community page with most recent experiences you can comment on and discover new trucks through photos rather than searching food trucks
 - **Profile** - User profile including favorite trucks list, editable posts
 

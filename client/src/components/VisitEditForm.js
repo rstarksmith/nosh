@@ -8,8 +8,7 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
   const [errors, setErrors] = useState(null)
   const { user } = useAuth()
 
-
-
+  
   const handleEdit = (e) => {
     e.preventDefault()
     const updatedVisit = {
@@ -68,8 +67,15 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
         />
         <label> Do not share post</label>
         <br />
-        <button type='submit'>Save Changes</button>
+        <button type="submit">Save Changes</button>
       </form>
+      {errors
+        ? Object.entries(errors).map(([key, value]) => (
+            <p className="err" key={value}>
+              ⚠︎ {key} {value}
+            </p>
+          ))
+        : null}
     </div>
   );
 }
