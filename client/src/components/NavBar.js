@@ -12,10 +12,7 @@ const NavBar = () => {
     setShowNav(!showNav);
   };
 
-  <a href="https://imgur.com/gSE8qr7">
-    <img src="https://i.imgur.com/gSE8qr7.png" alt="nosh up logo" />
-  </a>;
-
+  
   return (
     <div>
       <nav className="navbar">
