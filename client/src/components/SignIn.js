@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState(null)
   const navigate = useNavigate()
 
   const { logInUser } = useAuth()
@@ -21,9 +22,9 @@ const SignIn = () => {
     }).then((resp) => {
       if (resp.ok) {
         resp.json().then((userObj) => logInUser(userObj));}
-      //    else {
-      //   resp.json().then((resp) => setErrors(resp.errors));
-      // }
+         else {
+        resp.json().then((resp) => setErrors(resp.errors));
+      }
     });
   };
 
@@ -62,13 +63,13 @@ const SignIn = () => {
             Sign in
           </button>
         </form>
-        {/* {errors
+        {errors
           ? Object.entries(errors).map(([key, value]) => (
               <p className="err" key={`${key} ${value}`}>
                 ⚠︎ {value}
               </p>
             ))
-          : null} */}
+          : null}
         <p>
           Don't have an account?{" "}
           <span onClick={() => navigate("/signup")} className="line-link">

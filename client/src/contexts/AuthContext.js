@@ -18,7 +18,6 @@ const AuthContextProvider = (props) => {
     }, []);
 
     const logInUser = (userObj) => {
-      console.log(userObj);
       setUser(userObj);
       navigate("/");
     };

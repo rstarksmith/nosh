@@ -11,13 +11,10 @@ const SignUp = () => {
   const [avatar, setAvatar] = useState("");
   const [disabled, setDisabled] = useState(false);
   const [fileData, setFileData] = useState({})
-  // const [errors, setErrors] = useState(false);
+  const [errors, setErrors] = useState(null);
   const { logInUser } = useAuth()
   const navigate = useNavigate();
 
-  // 1. change image to base64 string
-  // 2. Formdata
-  // 3. Direct upload 
 
   const handleSignUp = (e) => {
     setDisabled(true)
@@ -38,7 +35,7 @@ const SignUp = () => {
       if (resp.ok) {
         resp.json().then((resp) => logInUser(resp));} 
       else {
-        // resp.json().then((resp) => setErrors(resp.errors));
+        resp.json().then((resp) => setErrors(resp.errors));
         setDisabled(false)
       }
     });
@@ -83,8 +80,8 @@ const SignUp = () => {
             });
           } else {
             // tell user file upload failed
-            // resp.json().then((resp) => setErrors(resp.errors));
-            // setDisabled(false);
+            resp.json().then((resp) => setErrors(resp.errors));
+            setDisabled(false);
           }
         });
     })
@@ -147,13 +144,13 @@ const SignUp = () => {
             Sign up
           </button>
         </form>
-        {/* {errors
+        {errors
           ? Object.entries(errors).map(([key, value]) => (
               <p className="err" key={value}>
                 ⚠︎ {key} {value}
               </p>
             ))
-          : null} */}
+          : null}
         <p>
           Already have an account?{" "}
           <span onClick={() => navigate("/signin")} className="line-link">

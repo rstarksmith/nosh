@@ -9,7 +9,7 @@ const TruckPage = () => {
   const [visits, setVisits] = useState("");
   const [toggleBttn, setToggleBttn] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [editable, setEditable] = useState(false);
+  // const [editable, setEditable] = useState(false);
   const [error, setError] = useState(false);
   const { id } = useParams();
   const { user } = useAuth();
@@ -66,6 +66,8 @@ const TruckPage = () => {
   const toggleForm = () => {
     setShowForm(!showForm);
   };
+
+  const editable = false
 
   if (error) return <h1>{error}</h1>;
   if (!visits || !user) return <h1>Loading...</h1>;

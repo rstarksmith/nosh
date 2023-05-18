@@ -30,7 +30,6 @@ const CommentForm = ({ visit, addComment }) => {
 
   return (
     <div>
-      {errors ? {errors} : null }
       <form onSubmit={handleAddComment}>
         <input
           type="text"
@@ -43,6 +42,13 @@ const CommentForm = ({ visit, addComment }) => {
         />
         <button type="submit">Post</button>
       </form>
+      {errors
+        ? Object.entries(errors).map(([key, value]) => (
+            <p className="err" key={value}>
+              ⚠︎ {key} {value}
+            </p>
+          ))
+        : null}
     </div>
   );
 }

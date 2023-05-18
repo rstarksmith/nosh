@@ -32,7 +32,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           addToVisits(resp)
           toggleForm()});
        } else {
-         // resp.json().then((resp) => setErrors(resp.errors));
+         resp.json().then((resp) => setErrors(resp.errors));
          setDisabled(false);
        }
      });
@@ -76,8 +76,8 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           });
         } else {
           // tell user file upload failed
-          // resp.json().then((resp) => setErrors(resp.errors));
-          // setDisabled(false);
+          resp.json().then((resp) => setErrors(resp.errors));
+          setDisabled(false);
         }
       });
     });
@@ -135,6 +135,13 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           Post Visit
         </button>
       </form>
+      {errors
+        ? Object.entries(errors).map(([key, value]) => (
+            <p className="err" key={value}>
+              ⚠︎ {key} {value}
+            </p>
+          ))
+        : null}
     </div>
   );
 }

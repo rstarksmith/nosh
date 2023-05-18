@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 
 const CommentCard = ({ comment, deleteComment }) => {
-  const [errors, setErrors] = useState(null)
+  const [error, setError] = useState(null)
 
   const { user } = useAuth();
  
@@ -15,11 +15,12 @@ const CommentCard = ({ comment, deleteComment }) => {
        if (resp.ok) {
          deleteComment(comment.id);
        } else {
-         resp.json().then((resp) => setErrors(resp.errors));
+         resp.json().then((resp) => setError(resp.error));
        }
      });
   }
 
+  if (error) return <h1>{error}</h1>
   return (
     <div>
       <p>

@@ -19,4 +19,7 @@ Foodie Favorites: Save and Share Your Top Nosh Up Picks"
 
 stretch badges - Nosh Up Awards: 
 
-"Nosh Up: Unleash Your Inner Food Cowboy in the Lone Star State!"
+Active Storage --
+ // 1. change image to base64 string
+  // 2. Formdata
+  // 3. Direct upload 
