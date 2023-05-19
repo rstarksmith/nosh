@@ -12,16 +12,14 @@ class UsersController < ApplicationController
     end
 
     # POST /signup
-    #how to add avatar
     def create 
         # activerecord transaction
-        user = User.create!(user_params)
-        user.avatar.attach(params[:avatar_signed_id])
-        session[:user_id] = user.id
-        render json: user, status: :created
+        @user = User.create!(user_params)
+        attach_avatar
+        session[:user_id] = @user.id
+        render json: @user, status: :created
     end 
 
-    #can I patch avatar and tagline?
     #PATCH /user/:id
     def update
         current_user.update!(user_update_params)
@@ -43,6 +41,18 @@ class UsersController < ApplicationController
 
      def user_update_params
         params.permit(:tagline)
+    end
+
+    def attach_avatar
+        if params[:avatar_signed_id].present?
+            @user.avatar.attach(params[:avatar_signed_id])
+        else
+            @user.avatar.attach(
+                io: File.open(Utility::FileDownload.new("https://truck-rails-app-assets.s3.us-east-2.amazonaws.com/default_avatar.png").download),
+                filename: 'default_avatar.png',
+                content_type: 'application/png'
+            )
+        end
     end
 
 end

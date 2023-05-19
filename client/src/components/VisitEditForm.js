@@ -4,11 +4,11 @@ import { useAuth } from '../contexts/AuthContext';
 const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
   const [rating, setRating] = useState(visit.rating);
   const [caption, setCaption] = useState(visit.caption);
-  const [exclusive, setExclusive] = useState(visit.exclusive);
+  const [exclusive, setExclusive] = useState(false);
   const [errors, setErrors] = useState(null)
   const { user } = useAuth()
 
-  console.log(exclusive)
+
   const handleEdit = (e) => {
     e.preventDefault()
     const updatedVisit = {

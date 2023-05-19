@@ -13,7 +13,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
 
    const handleAddVisit = (e) => {
      setDisabled(true);
-    //  e.preventDefault();
+     e.preventDefault();
      fetch("/visits", {
        method: "POST",
        headers: {

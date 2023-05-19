@@ -12,7 +12,7 @@ module Utility
         
 
         def download
-            IO.copy_stream(open(@url), @file_path)
+            IO.copy_stream(URI.open(@url), @file_path)
             @file_path
         end
     end
