@@ -13,7 +13,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
 
    const handleAddVisit = (e) => {
      setDisabled(true);
-     e.preventDefault();
+    //  e.preventDefault();
      fetch("/visits", {
        method: "POST",
        headers: {
@@ -116,13 +116,13 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
         <label htmlFor="button-file">Photo: </label>
         <input
           type="file"
-          id="button-file"
-          title="ghdfhdfh"
+          id="files"
           name="photo"
           value={photo}
           onChange={onFileSelect}
           className="input"
         />
+        <label htmlFor="files">sdfgsdg</label>
         <br />
         <input
           type="checkbox"
