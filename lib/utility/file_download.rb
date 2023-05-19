@@ -6,6 +6,7 @@ module Utility
         def initialize(url)
             @url = url
             pathname = Rails.root.join('tmp', 'storage')
+            FileUtils.mkdir_p pathname
             @file_path = "#{pathname}/#{SecureRandom.uuid}"
         end
         
