@@ -9,7 +9,6 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
   const [comments, setComments] = useState(visit.comments);
   const [showForm, setShowForm] = useState(false)
   const [showComments, setShowComments] = useState(false);
-  const [seeForm, setSeeForm] = useState(false);
   const navigate = useNavigate()
   const { user } = useAuth()
   
@@ -25,7 +24,6 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
 
   const addComment = (newComment) => {
     setComments(prevState => [...prevState, newComment])
-    toggleCommentForm()
   }
   
   const deleteComment = (deletedId) => {
@@ -84,10 +82,6 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
     setShowForm(!showForm)
   }
 
-  const toggleCommentForm = () => {
-    setSeeForm(!seeForm);
-  };
-
   return (
     <div className="card">
       <img
@@ -121,30 +115,38 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
           <div>
             {user.id === visit.user_id && (
               <>
-                <p onClick={toggleForm}>edit</p>
-                <p onClick={handleDelete}>delete</p>
+                <img
+                  src="https://i.imgur.com/gu6WPiM.png"
+                  alt="edit"
+                  onClick={toggleForm}
+                  className="icons"
+                />
+                <img
+                  src="https://i.imgur.com/EmzBZP9.png"
+                  alt="delete"
+                  onClick={handleDelete}
+                  className="icons"
+                />
               </>
             )}
           </div>
         )}
-        <button className="comment-toggle-button" onClick={toggleComments}>
-          {showComments ? "Comments" : "Comments"}
-        </button>
+        <img
+          src="https://i.imgur.com/L3gnt8t.png"
+          alt="comments"
+          onClick={toggleComments}
+          className="icons"
+        />
         {showComments ? (
           <>
             {displayComments}
-            {seeForm ? (
               <>
                 <CommentForm
                   visit={visit}
                   user={user}
                   addComment={addComment}
                 />
-                <button onClick={toggleCommentForm}>cancel</button>
               </>
-            ) : (
-              <button onClick={toggleCommentForm}>Leave Comment</button>
-            )}
           </>
         ) : null}
       </div>
@@ -154,5 +156,9 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
   
 
 export default VisitCard
+
+
+
+
 
 

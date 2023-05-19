@@ -8,7 +8,7 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
   const [errors, setErrors] = useState(null)
   const { user } = useAuth()
 
-  
+  console.log(exclusive)
   const handleEdit = (e) => {
     e.preventDefault()
     const updatedVisit = {

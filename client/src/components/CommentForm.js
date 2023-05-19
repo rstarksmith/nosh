@@ -20,7 +20,8 @@ const CommentForm = ({ visit, addComment }) => {
         .then((resp) => {
           if (resp.ok) {
             resp.json().then((newComment) => {
-              addComment(newComment); 
+              addComment(newComment);
+              setReply("") 
             });
           } else {
             resp.json().then((resp) => setErrors(resp.errors));

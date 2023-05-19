@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/AuthContext'
 const TruckPage = () => {
   const [truck, setTruck] = useState("");
   const [visits, setVisits] = useState("");
+  // const [myFavs, setMyFavs] = useState([])
   const [toggleBttn, setToggleBttn] = useState(false);
   const [showForm, setShowForm] = useState(false);
   // const [editable, setEditable] = useState(false);
@@ -20,6 +21,7 @@ const TruckPage = () => {
         resp.json().then((truckData) => {
           setTruck(truckData);
           setVisits(truckData.visits);
+          // getFavs()
         });
       } else {
         resp.json().then((resp) => setError(resp.error));
@@ -27,6 +29,17 @@ const TruckPage = () => {
     });
   }, [id]);
 
+  // const getFavs = () => {
+  //   fetch('/favorites').then((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then((resp) => {
+  //         setMyFavs(resp);
+  //       });
+  //     } else {
+  //       resp.json().then((resp) => setError(resp.error));
+  //     }
+  //   });
+  // }
 
   const addFavorite = (e) => {
     e.preventDefault();
@@ -46,20 +59,7 @@ const TruckPage = () => {
       }
     });
   };
-  
-// need user access on this page to set the fav button upon navigating
-  //  const setFav = (user) => {
-  //   const isIt = user.favorites.some(favorite => favorite.truck_id === truckdata.id)
-  //  }
-
-  //  const myFav = user.favorites.filter((f) => f.truck_id === truck.id);
-
-  //  const showFav = () => {
-  //    if (myFav > 0) {
-  //      setToggleBttn(myFav);
-  //    }
-  //  };
-  
+    
   const addToVisits = (newVisit) => {
     setVisits(prevState => [newVisit, ...prevState])
   }
@@ -102,14 +102,20 @@ const TruckPage = () => {
       {showForm ? (
         <div>
           <h2>Share Your Visit: </h2>
-          <VisitForm truck={truck} toggleForm={toggleForm} addToVisits={addToVisits} />
+          <VisitForm
+            truck={truck}
+            toggleForm={toggleForm}
+            addToVisits={addToVisits}
+          />
         </div>
       ) : (
         <div>
           <h2>
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
           </h2>
-          <VisitList visits={visits} editable={editable} />
+          <div className="truck-card-container">
+            <VisitList visits={visits} editable={editable} />
+          </div>
         </div>
       )}
     </div>

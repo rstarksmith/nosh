@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import VisitCard from "../components/VisitCard";
 import ProfileForm from '../components/ProfileForm';
 
-const Profile = ({ deleteVisit }) => {
+const Profile = () => {
   const [profile, setProfile] = useState(null)
   const [showForm, setShowForm] = useState(false)
   // should i hav a favs state?
