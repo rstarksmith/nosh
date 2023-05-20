@@ -38,22 +38,23 @@ const FoodTrucks = () => {
  
   return (
     <div>
-      <h1>Texas Food Trucks</h1>
-      <label>Search: </label>
-      <input
-        className="input"
-        autoComplete="off"
-        id="search"
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Truck Name..."
-        type="text"
-        value={search}
-      />
-      <div className="filter-container">
-        <label>City: </label>
-        <select className="dropdown" name="filter" onChange={handleFilter}>
+      <h1 className="trucks-title">Texas Food Trucks</h1>
+      <h3 className="trucks-sub-title">
+        Nosh Navigator: Find Food Trucks Near You
+      </h3>
+      <div className="trucks-search-container">
+        <input
+          className="input"
+          autoComplete="off"
+          id="search"
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search by truck name..."
+          type="text"
+          value={search}
+        />
+        <select className="input" name="filter" onChange={handleFilter}>
           <option className="drop-op" value="All">
-            All 
+            Search by city...
           </option>
           <option value="Fort Worth">Fort Worth</option>
           <option value="Dallas">Dallas</option>
