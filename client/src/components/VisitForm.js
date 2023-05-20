@@ -5,7 +5,6 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
   const [rating, setRating] = useState(0)
   const [caption, setCaption] = useState("")
   const [exclusive, setExclusive] = useState(false)
-  const [photo, setPhoto] = useState("")
   const [fileData, setFileData] = useState({});
   const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState(null)
@@ -85,6 +84,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
     return file;
   };
 
+  
   return (
     <div>
       <form onSubmit={handleAddVisit}>
@@ -118,7 +118,6 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           type="file"
           id="files"
           name="photo"
-          value={photo}
           onChange={onFileSelect}
           className="input"
         />

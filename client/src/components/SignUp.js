@@ -8,7 +8,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [tagline, setTagline] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [disabled, setDisabled] = useState(false);
   const [fileData, setFileData] = useState({})
   const [errors, setErrors] = useState(null);
@@ -134,7 +133,6 @@ const SignUp = () => {
           <input
             type="file"
             name="avatar"
-            value={avatar}
             onChange={onFileSelect}
             // className=""
           />

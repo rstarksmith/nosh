@@ -6,4 +6,5 @@ class TruckSerializer < ActiveModel::Serializer
   end
 
   has_many :visits
+  
 end

@@ -131,22 +131,32 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
             )}
           </div>
         )}
-        <img
-          src="https://i.imgur.com/L3gnt8t.png"
-          alt="comments"
-          onClick={toggleComments}
-          className="icons"
-        />
+        <div>
+          {comments.length > 0 ? (
+            <p>
+              <img
+                src="https://i.imgur.com/L3gnt8t.png"
+                alt="comments"
+                onClick={toggleComments}
+                className="icons"
+              />
+              {comments.length}
+            </p>
+          ) : (
+            <img
+              src="https://i.imgur.com/L3gnt8t.png"
+              alt="comments"
+              onClick={toggleComments}
+              className="icons"
+            />
+          )}
+        </div>
         {showComments ? (
           <>
             {displayComments}
-              <>
-                <CommentForm
-                  visit={visit}
-                  user={user}
-                  addComment={addComment}
-                />
-              </>
+            <>
+              <CommentForm visit={visit} user={user} addComment={addComment} />
+            </>
           </>
         ) : null}
       </div>

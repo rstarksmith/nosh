@@ -61,8 +61,14 @@ const TruckPage = () => {
   };
     
   const addToVisits = (newVisit) => {
-    setVisits(prevState => [newVisit, ...prevState])
+    if (newVisit.exclusive === false) {
+      setVisits(prevState => [newVisit, ...prevState])
+    } else {
+      return null
+      // could toggle a response <p>visit added</p>
+    }
   }
+
   const toggleForm = () => {
     setShowForm(!showForm);
   };
