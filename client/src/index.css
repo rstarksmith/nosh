@@ -2,6 +2,7 @@
 
 body {
   background-color: #363639;
+  color:#f4f4f4;
   margin: 0;
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
@@ -82,7 +83,7 @@ code {
 
 
 
-/* Profile */
+/* Profile --------------------------------------------*/
 .avatar {
   border-radius: 50%;
   height: 250px;
@@ -201,11 +202,177 @@ code {
   margin-bottom: 0;
 }
 
-/* TruckPage */
+/* TruckPage ------------------------------------------------*/
+
+.tp-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .75fr 0.5fr 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column dense;
+  grid-template-areas:
+    "truck-image"
+    "truck-info-"
+    "truck-visits";
+}
+
+.truck-image {
+  background-color: black;
+  grid-area: truck-image;
+}
+
+.truck-pic {
+  max-height: 500px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.truck-info- {
+  grid-area: truck-info-;
+}
+
+.info-txt {
+  color: #f4f4f4;
+  font-weight: 600;
+  font-size: 40px;
+  margin-left: 100px;
+  margin-bottom: 5px;
+  text-align: left;
+  display: inline-block;
+}
 
 .yelp-icon {
-  width: 40px;
+  display: inline-block;
+  margin-left: 20px;
+  width: 33px;
 }
+
+.info-sub-txt {
+  color:#f4f4f4;
+  font-weight: 300;
+  margin-left: 100px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.truck-visits {
+  grid-area: truck-visits;
+}
+
+.tk-visit-txt {
+  color:#f4f4f4;
+  font-weight: 600;
+  margin-left: 100px;
+}
+
+/* VisitForm */
+
+.visit-form-txt {
+  color: #f4f4f4;
+  font-weight: 300;
+}
+
+.tk-bttn {
+  background-color: #ed9e3d;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 15px;
+  width: 140px;
+  height: 40px;
+  vertical-align: auto;
+}
+  
+.tk-bttn:hover {
+  background-color: rgb(237, 236, 236);
+  color: #309898;
+  cursor: pointer;
+  font-weight: 400;
+  transition: .8s;
+}
+
+.visit-form-block {
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+  width: 375px;
+  border: 2px solid #309898;
+  padding: 10px 50px;
+}
+
+.input {
+  border-radius: 8px;
+  font-family: 'Poppins';
+  width: 100%;
+  padding: 12px 12px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #3f3f3f;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.input:focus {
+  border: 2px solid #309898;
+}
+
+/* FORMS GENERAL ------------------------------------ */
+.err {
+  color:#f4f4f4
+}
+
+.form-block {
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+  width: 375px;
+  border: 2px solid #309898;
+  padding: 10px 50px;
+}
+
+.bttn {
+  background-color: #ed9e3d;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 15px;
+  width: 140px;
+  height: 40px;
+  vertical-align: auto;
+}
+
+.bttn:hover {
+  background-color: rgb(237, 236, 236);
+  color: #309898;
+  cursor: pointer;
+  font-weight: 400;
+  transition: .8s;
+}
+
+/* SignIn SignOut -------------------------------------*/
+
+.line-link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+
+
+
+
 
 
 

@@ -86,9 +86,9 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
 
   
   return (
-    <div>
+    <div className="visit-form-block">
       <form onSubmit={handleAddVisit}>
-        <label>Rate: </label>
+        <label className="visit-form-txt">Rate your experience: </label>
         <select
           className="input"
           name="rating"
@@ -101,8 +101,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           <option value="3">♥︎♥︎♥︎</option>
           <option value="4">♥︎♥︎♥︎♥︎</option>
         </select>
-        <br />
-        <label>Photo caption: </label>
+        <label className="visit-form-txt">Photo caption: </label>
         <input
           type="text"
           name="caption"
@@ -112,8 +111,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           className="input"
           autoComplete="off"
         />
-        <br />
-        <label htmlFor="button-file">Photo: </label>
+        <label className="visit-form-txt">Upload photo: </label>
         <input
           type="file"
           id="files"
@@ -121,17 +119,15 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
           onChange={onFileSelect}
           className="input"
         />
-        <label htmlFor="files">sdfgsdg</label>
-        <br />
         <input
           type="checkbox"
           name="exclusive"
           value={exclusive}
           onChange={(e) => setExclusive(e.target.checked)}
         />
-        <label> Do not share</label>
+        <label className="visit-form-txt"> Do not share</label>
         <br />
-        <button type="submit" disabled={disabled}>
+        <button className="tk-bttn" type="submit" disabled={disabled}>
           Post Visit
         </button>
       </form>

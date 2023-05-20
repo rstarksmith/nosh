@@ -79,12 +79,12 @@ const TruckPage = () => {
   if (!visits || !user) return <h1>Loading...</h1>;
 
   return (
-    <div>
-      <div>
-        <img src={truck.image} alt={truck.name} />
+    <div className="tp-container">
+      <div className="truck-image">
+        <img src={truck.image} alt={truck.name} className="truck-pic" />
       </div>
-      <div>
-        <h1>{truck.name}</h1>{" "}
+      <div className="truck-info-">
+        <h1 className="info-txt">{truck.name}</h1>{" "}
         <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
           <img
             src="https://i.imgur.com/B5PO9U1.png"
@@ -92,22 +92,22 @@ const TruckPage = () => {
             alt="yelp link"
           />
         </a>
-        <h3>
+        <h2 className="info-sub-txt">
           {truck.city}, {truck.state}
-        </h3>
-        <p>{truck.cuisine}</p>
-      </div>
-      <form onSubmit={addFavorite}>
-        <button type="submit">
-          {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
+        </h2>
+        <h2 className="info-sub-txt">{truck.cuisine}</h2>
+        <form onSubmit={addFavorite}>
+          <button className="tk-bttn" type="submit">
+            {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
+          </button>
+        </form>
+        <button onClick={toggleForm} className="tk-bttn">
+          {showForm ? "Cancel" : "Share Visit"}
         </button>
-      </form>
-      <button onClick={toggleForm}>
-        {showForm ? "Cancel" : "Share Visit"}
-      </button>
+      </div>
       {showForm ? (
-        <div>
-          <h2>Share Your Visit: </h2>
+        <div className="truck-visits">
+          <h1 className="tk-visit-txt">Share Your Visit: </h1>
           <VisitForm
             truck={truck}
             toggleForm={toggleForm}
@@ -115,10 +115,10 @@ const TruckPage = () => {
           />
         </div>
       ) : (
-        <div>
-          <h2>
+        <div className="truck-visits">
+          <h1 className="tk-visit-txt">
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
-          </h2>
+          </h1>
           <div className="truck-card-container">
             <VisitList visits={visits} editable={editable} />
           </div>

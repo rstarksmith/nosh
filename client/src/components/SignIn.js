@@ -70,7 +70,7 @@ const SignIn = () => {
               </p>
             ))
           : null}
-        <p>
+        <p className="visit-form-txt">
           Don't have an account?{" "}
           <span onClick={() => navigate("/signup")} className="line-link">
             Sign up

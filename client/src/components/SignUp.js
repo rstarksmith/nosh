@@ -129,15 +129,13 @@ const SignUp = () => {
             className="input"
           />
           <br />
-          <label>Profile Picture:</label>
+          <label className="visit-form-txt">Profile Picture:</label>
           <input
             type="file"
             name="avatar"
             onChange={onFileSelect}
-            // className=""
+            className="input"
           />
-          
-          <br />
           <button className="bttn" type="submit" disabled={disabled}>
             Sign up
           </button>
@@ -149,7 +147,7 @@ const SignUp = () => {
               </p>
             ))
           : null}
-        <p>
+        <p className="visit-form-txt">
           Already have an account?{" "}
           <span onClick={() => navigate("/signin")} className="line-link">
             Sign in
