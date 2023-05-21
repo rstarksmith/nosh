@@ -23,7 +23,7 @@ const CommentCard = ({ comment, deleteComment }) => {
   if (error) return <h1>{error}</h1>
   return (
     <div>
-      <p>
+      <p className="comments-txt"> 
         {comment.commentor} {comment.reply}{" "}{user.id === comment.user_id && (<img onClick={handleDeleteComment} className="trash" src="https://i.imgur.com/EmzBZP9.png" alt="trashcan"/>)}
       </p>
     </div>

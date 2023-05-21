@@ -31,13 +31,12 @@ const SignIn = () => {
 
   return (
     <div>
-      <img
-        // src="https://i.imgur.com/pxg3tZ9.png"
-        alt="nosh.up logo"
-        className="form-logo"
-      />
       <div className="form-block">
-        <h3>Sign in</h3>
+        <img
+          src="https://i.imgur.com/StHLNbR.png"
+          alt="nosh.up logo"
+          className="form-logo"
+        />
         <form onSubmit={handleSignIn}>
           <input
             type="text"

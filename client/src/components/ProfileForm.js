@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const ProfileForm = ({ profile, setShowForm, handleTagEdit }) => {
+const ProfileForm = ({ profile, clickHandler, handleTagEdit }) => {
   const [taglineEdit, setTaglineEdit] = useState({ tagline: "" });
   const [errors, setErrors] = useState(null);
 
@@ -16,7 +16,7 @@ const ProfileForm = ({ profile, setShowForm, handleTagEdit }) => {
       if (resp.ok) {
         resp.json().then((resp) => {
           handleTagEdit(resp.tagline);
-          setShowForm(false);
+          clickHandler();
         });
       } else {
         resp.json().then((resp) => {
@@ -41,10 +41,11 @@ const ProfileForm = ({ profile, setShowForm, handleTagEdit }) => {
           value={taglineEdit.tagline}
           autoComplete="off"
           placeholder={`${profile.tagline}...`}
-          className='input'
+          className='profile-input'
         />
-        <button type="submit">update</button>
+        <button className="bttn" type="submit">update</button>
       </form>
+       <button onClick={clickHandler}className='bttn' >X</button>
       {errors
         ? Object.entries(errors).map(([key, value]) => (
             <p className="err" key={value}>

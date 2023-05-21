@@ -39,10 +39,11 @@ const FoodTrucks = () => {
   return (
     <div>
       <h1 className="trucks-title">Texas Food Trucks</h1>
-      <h3 className="trucks-sub-title">
-        Nosh Navigator: Find Food Trucks Near You
-      </h3>
+
       <div className="trucks-search-container">
+        <h3 className="trucks-sub-title">
+          Nosh Navigator: Find Food Trucks Near You
+        </h3>
         <input
           className="input"
           autoComplete="off"

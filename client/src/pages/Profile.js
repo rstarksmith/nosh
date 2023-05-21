@@ -64,11 +64,9 @@ const Profile = () => {
     return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id} className='myfav-bttn'>{f.fav}</button>})
 
   
-  const clickHandler = (event) => {
-    if (event.detail === 2) {
+  const clickHandler = () => {
       setShowForm(!showForm);
       // stretch update avatar photo too
-    }
   };
 
   const handleTagEdit = (editedTag) => {
@@ -88,12 +86,12 @@ const Profile = () => {
             <ProfileForm
               handleTagEdit={handleTagEdit}
               profile={profile}
-              setShowForm={setShowForm}
+              clickHandler={clickHandler}
             />
           ) : (
             <>
-              <h3 onClick={clickHandler}>{profile.tagline}</h3>
-              <button className='bttn'>update profile</button>
+              <h3>{profile.tagline}</h3>
+              <button className='bttn' onClick={clickHandler}>update profile</button>
             </>
           )}
         </div>

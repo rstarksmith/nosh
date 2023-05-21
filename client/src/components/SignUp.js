@@ -89,11 +89,15 @@ const SignUp = () => {
 
   return (
     <div>
-      <img src="" alt="nosh.up logo" className="form-logo" />
       <div className="form-block">
-        <h3>Sign up for a free account</h3>
+        <img
+          src="https://i.imgur.com/StHLNbR.png"
+          alt="nosh.up logo"
+          className="form-logo"
+        />
         <form onSubmit={handleSignUp}>
           <input
+            autoComplete="off"
             type="text"
             name="username"
             value={username}
@@ -103,6 +107,7 @@ const SignUp = () => {
           />
           <br />
           <input
+            autoComplete="off"
             type="text"
             name="password"
             value={password}
@@ -112,6 +117,7 @@ const SignUp = () => {
           />
           <br />
           <input
+            autoComplete="off"
             type="text"
             name="password_confirmation"
             value={passwordConfirmation}
@@ -121,6 +127,7 @@ const SignUp = () => {
           />
           <br />
           <input
+            autoComplete="off"
             type="text"
             name="tagline"
             value={tagline}

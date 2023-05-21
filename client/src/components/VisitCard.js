@@ -133,15 +133,17 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
         )}
         <div>
           {comments.length > 0 ? (
-            <p>
+            <>
               <img
                 src="https://i.imgur.com/L3gnt8t.png"
                 alt="comments"
                 onClick={toggleComments}
                 className="icons"
               />
-              {comments.length}
-            </p>
+              <p className="comments-num">
+                {comments.length}
+              </p>
+            </>
           ) : (
             <img
               src="https://i.imgur.com/L3gnt8t.png"

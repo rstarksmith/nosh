@@ -41,7 +41,7 @@ const CommentForm = ({ visit, addComment }) => {
           className="input"
           autoComplete="off"
         />
-        <button type="submit">Post</button>
+        <button className="bttn" type="submit">Post</button>
       </form>
       {errors
         ? Object.entries(errors).map(([key, value]) => (

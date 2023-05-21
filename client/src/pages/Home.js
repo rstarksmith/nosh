@@ -1,6 +1,5 @@
-import { useAuth } from '../contexts/AuthContext'
-
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -30,3 +29,4 @@ const Home = () => {
 }
 
 export default Home
+
