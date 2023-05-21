@@ -7,15 +7,12 @@ import { useAuth } from '../contexts/AuthContext'
 const TruckPage = () => {
   const [truck, setTruck] = useState("");
   const [visits, setVisits] = useState("");
-  // const [myFavs, setMyFavs] = useState([])
-  const [toggleBttn, setToggleBttn] = useState(false);
+  const [favs, setFavs] = useState([])
+  // const [toggleBttn, setToggleBttn] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  // const [editable, setEditable] = useState(false);
   const [error, setError] = useState(false);
   const { id } = useParams();
   const { user } = useAuth();
-
-  // set fav button to disable if already favorited
 
   useEffect(() => {
     fetch(`/trucks/${id}`).then((resp) => {
@@ -23,7 +20,7 @@ const TruckPage = () => {
         resp.json().then((truckData) => {
           setTruck(truckData);
           setVisits(truckData.visits);
-          // getFavs()
+          setFavs(truckData.favorites)
         });
       } else {
         resp.json().then((resp) => setError(resp.error));
@@ -31,17 +28,7 @@ const TruckPage = () => {
     });
   }, [id]);
 
-  // const getFavs = () => {
-  //   fetch('/favorites').then((resp) => {
-  //     if (resp.ok) {
-  //       resp.json().then((resp) => {
-  //         setMyFavs(resp);
-  //       });
-  //     } else {
-  //       resp.json().then((resp) => setError(resp.error));
-  //     }
-  //   });
-  // }
+  const isMyFav = favs.some(f => f.user_id === user.id)
 
   const addFavorite = (e) => {
     e.preventDefault();
@@ -53,7 +40,9 @@ const TruckPage = () => {
       body: JSON.stringify({ truck_id: truck.id }),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then(setToggleBttn(true));
+        resp.json().then(resp => {
+          addFav(resp)
+          });
       } else {
         resp.json().then((resp) => {
           setError(resp.error);
@@ -62,6 +51,26 @@ const TruckPage = () => {
     });
   };
     
+  const addFav = (newFav) => {
+    setFavs(prevState => [...prevState, newFav ])
+  }
+
+  const deleteFavorite = (e) => {
+     e.preventDefault();
+    const findId = favs.find(f=>f.user_id === user.id)
+    fetch(`/favorites/${findId.id}`, {
+      method: "DELETE"
+    }).then((resp) => {
+      if (resp.ok) {
+          deleteFav(findId)
+      }});
+    }
+  
+  const deleteFav = (deleted) => {
+    const editedFavs = favs.filter(f => f.id !== deleted.id)
+    setFavs(editedFavs)
+  }
+
   const addToVisits = (newVisit) => {
     if (newVisit.exclusive === false) {
       setVisits(prevState => [newVisit, ...prevState])
@@ -98,11 +107,12 @@ const TruckPage = () => {
           {truck.city}, {truck.state}
         </h2>
         <h2 className="info-sub-txt">{truck.cuisine}</h2>
-        <form onSubmit={addFavorite}>
-          <button className="tk-bttn" type="submit">
-            {toggleBttn ? "♥︎ Favorite" : "♡ Favorite"}
-          </button>
-        </form>
+        { !isMyFav ?
+        (<form onSubmit={addFavorite}>
+          <button className="tk-bttn" type="submit">♡</button>
+        </form>) : (<form onSubmit={deleteFavorite}>
+          <button className="tk-bttn" type="submit">♥</button>
+        </form>)}
         <button onClick={toggleForm} className="tk-bttn">
           {showForm ? "Cancel" : "Share Visit"}
         </button>

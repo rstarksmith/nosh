@@ -292,9 +292,32 @@ code {
   color:#363639;
 }
 
-.-input {
-
+.icons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "comment-i exclus-i edit-I delete-i";
+  grid-area: icons-container;
 }
+
+.comment-i {
+  grid-area: comment-i;
+}
+
+.edit-I {
+  grid-area: edit-I;
+}
+
+.delete-i {
+  grid-area: delete-i;
+}
+
+.exclus-i {
+  grid-area: exclus-i;
+}
+
 
 @media (max-width: 480px) {
   .card {
