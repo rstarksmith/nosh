@@ -15,6 +15,8 @@ const TruckPage = () => {
   const { id } = useParams();
   const { user } = useAuth();
 
+  // set fav button to disable if already favorited
+
   useEffect(() => {
     fetch(`/trucks/${id}`).then((resp) => {
       if (resp.ok) {
@@ -119,7 +121,7 @@ const TruckPage = () => {
           <h1 className="tk-visit-txt">
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
           </h1>
-          <div className="truck-card-container">
+          <div className="truck-page-visits">
             <VisitList visits={visits} editable={editable} />
           </div>
         </div>

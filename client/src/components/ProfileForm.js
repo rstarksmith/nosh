@@ -41,6 +41,7 @@ const ProfileForm = ({ profile, setShowForm, handleTagEdit }) => {
           value={taglineEdit.tagline}
           autoComplete="off"
           placeholder={`${profile.tagline}...`}
+          className='input'
         />
         <button type="submit">update</button>
       </form>

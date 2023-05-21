@@ -51,12 +51,21 @@ code {
 }
 
 .navbar-links li {
-  margin: 0 10px;
+  margin: 0 25px;
 }
 
 .navbar-links a {
   color: #f4f4f4;
+  font-weight: 500;
   text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color:#309898
+}
+
+.navbar-links a.active {
+  color:#309898;
 }
 
 @media (max-width: 768px) {
@@ -82,20 +91,108 @@ code {
 }
 
 
-
 /* Profile --------------------------------------------*/
-.avatar {
-  border-radius: 50%;
-  height: 250px;
-  width: 250px;
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .4fr 1.1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 10px 0px;
+  grid-auto-flow: column dense;
+  grid-template-areas:
+    "profile-con"
+    "visits";
 }
 
-/* VisitCards */
+.profile-con {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "avatar-con badges-con"
+    "info-con favs-con";
+  grid-area: profile-con;
+}
+
+.avatar-con {
+  grid-area: avatar-con;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.avatar {
+  border-radius: 50%;
+  max-height: 230px;
+  max-width: 230px;
+  display: flex;
+  margin: auto;
+}
+
+.info-con {
+  grid-area: info-con;
+  text-align: center;
+}
+
+.badges-con {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+  grid-area: badges-con;
+  margin-top: 60px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.favs-con {
+  grid-area: favs-con;
+  text-align: center;
+}
+
+.myfav-bttn {
+  background-color: #40b7bb;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 15px;
+  margin: 10px;
+  width: fit-content;
+  height: 40px;
+  vertical-align: auto;
+  }
+  
+  .myfav-bttn:hover {
+    background-color: rgb(237, 236, 236);
+    color: #309898;
+    cursor: pointer;
+    font-weight: 400;
+    transition: .8s;
+  }
+
+
+.visits {
+  grid-area: visits;
+}
+
+/* VisitCards ==========================================*/
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .card {
@@ -123,10 +220,13 @@ code {
   font-weight: 300;
   margin-left: 5px;
 }
+
 .rate-container {
   margin: 0px;
 }
+
 .card-date {
+  color:#363639;
   float: right;
   margin-right: 3px;
 }
@@ -190,12 +290,12 @@ code {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
-  /* Adjust the max-width as needed */
+  /* Adjust the max-width? */
   margin: 0 auto;
 }
 .truck-card {
   width: 100%;
-  max-width: 14rem;
+  max-width: 15rem;
   background-color:#f4f4f4;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -204,7 +304,7 @@ code {
 }
 
 .truck-card-image {
-  width: 14rem;
+  width: 15rem;
   height: 11rem;
   border-radius: 4px 4px 0 0;
   object-fit: fill;
@@ -214,7 +314,6 @@ code {
   color: #363639;
   font-size: 16px;
   margin: 5px;
- 
   text-align: center;
 }
 
@@ -232,7 +331,6 @@ code {
     "truck-image"
     "truck-info-"
     "truck-visits";
-  
 }
 
 .truck-image {
@@ -284,7 +382,7 @@ code {
   margin-left: 100px;
 }
 
-/* VisitForm */
+/* VisitForm ====================================*/
 
 .visit-form-txt {
   color: #f4f4f4;

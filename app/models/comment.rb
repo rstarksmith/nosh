@@ -8,6 +8,6 @@ class Comment < ApplicationRecord
     def commentor 
        user.username
     end
-    
+
 
 end

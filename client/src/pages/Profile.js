@@ -61,7 +61,7 @@ const Profile = () => {
   });
 
   const displayFavorites = profile.favorites.map(f => {
-    return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id}>{f.fav}</button>})
+    return <button onClick={() => navigate(`/trucks/${f.truck_id}`)} key={f.id} className='myfav-bttn'>{f.fav}</button>})
 
   
   const clickHandler = (event) => {
@@ -76,25 +76,47 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="profile-layout">
       {error && { error }}
-      <img src={profile.avatar} alt="avatar" className="avatar" />
-      <h2>{profile.username}</h2>
-      {showForm ? (
-        <ProfileForm handleTagEdit={handleTagEdit} profile={profile} setShowForm={setShowForm} />
-      ) : (
-        <h3 onClick={clickHandler}>{profile.tagline}</h3>
-      )}
-
-      <div>
-        {profile.favorites.length > 0 && (
-          <>
-            <h2>My Favorite Trucks</h2>
-            <div>{displayFavorites}</div>
-          </>
-        )}
+      <div className="profile-con">
+        <div className="avatar-con">
+          <img src={profile.avatar} alt="avatar" className="avatar" />
+        </div>
+        <div className="info-con">
+          <h2>{profile.username}</h2>
+          {showForm ? (
+            <ProfileForm
+              handleTagEdit={handleTagEdit}
+              profile={profile}
+              setShowForm={setShowForm}
+            />
+          ) : (
+            <>
+              <h3 onClick={clickHandler}>{profile.tagline}</h3>
+              <button className='bttn'>update profile</button>
+            </>
+          )}
+        </div>
+        <div className="badges-con">
+          <h2>Posts</h2>
+          <h2>Comments</h2>
+          <h2>Nosher since</h2>
+          <h2>{profile.visits.length}</h2>
+          <h2>{profile.comments}</h2>
+          <h2>{profile.created_at}</h2>
+        </div>
+        <div className="favs-con">
+          {profile.favorites.length > 0 && (
+            <>
+              <h2>My Favorite Trucks</h2>
+              <div>{displayFavorites}</div>
+            </>
+          )}
+        </div>
       </div>
-      <div className="card-container">{displayUserVisits}</div>
+      <div className="visits-con">
+        <div className="card-container">{displayUserVisits}</div>
+      </div>
     </div>
   );
 }
