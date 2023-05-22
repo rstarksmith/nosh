@@ -47,7 +47,7 @@ const Profile = () => {
   
   if (!user) return <h1>Not Authorized</h1>
   if (!profile) return <h1>Loading..</h1>;
- 
+
   const displayUserVisits = profile.visits.map((visit) => {
     return (
       <VisitCard
@@ -91,17 +91,24 @@ const Profile = () => {
           ) : (
             <>
               <h3>{profile.tagline}</h3>
-              <button className='bttn' onClick={clickHandler}>update profile</button>
+              <button className="bttn" onClick={clickHandler}>
+                update profile
+              </button>
             </>
           )}
         </div>
         <div className="badges-con">
-          <h2>Posts</h2>
-          <h2>Comments</h2>
-          <h2>Nosher since</h2>
-          <h2>{profile.visits.length}</h2>
-          <h2>{profile.comments}</h2>
-          <h2>{profile.created_at}</h2>
+          <h2 className="posts">Posts</h2>
+          <div className='badge'>
+            <img
+              src="https://i.imgur.com/B5PO9U1.png"
+              className="badge-icon"
+              alt=""
+            />
+          </div>
+          <h2 className="member">Nosher since</h2>
+          <h2 className="post-count">{profile.visits.length}</h2>
+          <h2 className="since">{profile.created_at}</h2>
         </div>
         <div className="favs-con">
           {profile.favorites.length > 0 && (

@@ -9,5 +9,4 @@ class Comment < ApplicationRecord
        user.username
     end
 
-
 end

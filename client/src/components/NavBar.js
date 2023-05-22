@@ -46,9 +46,9 @@ const NavBar = () => {
                 <NavLink to="/noshboard">Nosh Board</NavLink>
               </li>
               <li>
-                <button onClick={logOut} className="logout-bttn">
+                <p onClick={logOut} className="navbar-links-logout">
                   Sign out
-                </button>
+                </p>
               </li>
             </>
           )}

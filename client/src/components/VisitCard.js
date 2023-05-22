@@ -111,48 +111,51 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
             </>
           )}
         </div>
-        {editable && (
-          <div>
-            {user.id === visit.user_id && (
-              <>
-                <img
-                  src="https://i.imgur.com/gu6WPiM.png"
-                  alt="edit"
-                  onClick={toggleForm}
-                  className="icons"
-                />
-                <img
-                  src="https://i.imgur.com/EmzBZP9.png"
-                  alt="delete"
-                  onClick={handleDelete}
-                  className="icons"
-                />
-              </>
-            )}
-          </div>
-        )}
-        <div>
-          {comments.length > 0 ? (
-            <>
-              <img
-                src="https://i.imgur.com/L3gnt8t.png"
-                alt="comments"
-                onClick={toggleComments}
-                className="icons"
-              />
-              <p className="comments-num">
-                {comments.length}
-              </p>
-            </>
-          ) : (
+        <div className="icons-container">
+          <div className="comments-i">
             <img
               src="https://i.imgur.com/L3gnt8t.png"
               alt="comments"
               onClick={toggleComments}
               className="icons"
             />
+            {comments.length > 0 ? (
+              <p className="comments-num">{comments.length}</p>
+            ) : null}
+          </div>
+          <div className="exclus-i">
+            {/* <img
+              src="https://i.imgur.com/L3gnt8t.png"
+              alt="visit not shared"
+              className="icons"
+            /> */}
+          </div>
+          {editable && (
+            <>
+              {user.id === visit.user_id && (
+                <>
+                  <div className="edit-i">
+                    <img
+                      src="https://i.imgur.com/gu6WPiM.png"
+                      alt="edit"
+                      onClick={toggleForm}
+                      className="icons"
+                    />
+                  </div>
+                  <div className="delete-i">
+                    <img
+                      src="https://i.imgur.com/EmzBZP9.png"
+                      alt="delete"
+                      onClick={handleDelete}
+                      className="icons"
+                    />
+                  </div>
+                </>
+              )}
+            </>
           )}
         </div>
+        <div></div>
         {showComments ? (
           <>
             {displayComments}

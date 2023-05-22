@@ -18,11 +18,13 @@ const Home = () => {
         that make Texas a food lover's paradise!
       </p>
       {user ? (
-        <button className="btn" onClick={() => navigate("/profile")}>
+        <button className="bttn" onClick={() => navigate("/profile")}>
           Profile
         </button>
       ) : (
-        <button onClick={() => navigate("/signup")}>Sign Up</button>
+        <button onClick={() => navigate("/signup")} className="bttn">
+          Sign Up
+        </button>
       )}
     </div>
   );

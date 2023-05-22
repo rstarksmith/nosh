@@ -35,7 +35,7 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
   return (
     <div>
       <form onSubmit={handleEdit}>
-        <label>Rate your experience: </label>
+        <label className="visit-edit-txt">Rate your experience: </label>
         <select
           className="input"
           name="rating"
@@ -49,7 +49,7 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
           <option value="4">♥︎♥︎♥︎♥︎</option>
         </select>
         <br />
-        <label>{user.username} says: </label>
+        <label className="visit-edit-txt">Photo caption:</label>
         <input
           type="text"
           name="caption"
@@ -65,9 +65,9 @@ const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
           value={exclusive}
           onChange={(e) => setExclusive(e.target.checked)}
         />
-        <label> Do not share post</label>
+        <label className="visit-edit-txt"> Do not share post</label>
         <br />
-        <button type="submit">Save Changes</button>
+        <button className="bttn" type="submit">Save Changes</button>
       </form>
       {errors
         ? Object.entries(errors).map(([key, value]) => (

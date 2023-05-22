@@ -131,7 +131,7 @@ const TruckPage = () => {
           <h1 className="tk-visit-txt">
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
           </h1>
-          <div className="truck-page-visits">
+          <div className="card-container">
             <VisitList visits={visits} editable={editable} />
           </div>
         </div>
