@@ -114,16 +114,20 @@ const TruckPage = () => {
         </div>
         <div className="tk-buttons">
           {!isMyFav ? (
-            <form onSubmit={addFavorite}>
-              <button className="tk-bttn" type="submit">
-                ♡
-              </button>
+            <form onClick={addFavorite}>
+              <img
+                src="https://i.imgur.com/YpfMBTK.png"
+                className="fav-icon"
+                alt="fav button"
+              />
             </form>
           ) : (
-            <form onSubmit={deleteFavorite}>
-              <button className="tk-bttn" type="submit">
-                ♥
-              </button>
+            <form onClick={deleteFavorite}>
+              <img
+                src="https://i.imgur.com/jPAUZ4R.png"
+                className="fav-icon"
+                alt="fav button"
+              />
             </form>
           )}
         </div>

@@ -603,6 +603,8 @@ code {
   grid-area: tk-profile;
 }
 
+
+
 .tk-buttons {
   grid-area: tk-buttons;
 }
@@ -631,6 +633,11 @@ code {
   margin-bottom: 2px;
 }
 
+.fav-icon {
+  margin-top: 31px;
+  margin-left: 300px;
+  width: 60px;
+}
 
 .tk-visit-txt {
   color:#f4f4f4;
