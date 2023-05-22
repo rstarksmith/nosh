@@ -66,11 +66,15 @@ $ npm start --prefix client
 - Application is strictly for educational purposes only. This final project with Flatiron School is temporarily deployed for student presentation.
 - Graphics, logo and icons created with Adobe Photoshop and [Canva] 
 - Image hosting with [Imgur]
-- Seeding data:
-    [Yelp] Yelp Links, Business Data, and Photos
+Seeding data & website:
+    - [Yelp] Yelp Links, Business Data, and Photos
+    - [NOVODIASTOCK] Home page photo of woman taking picture of food. 
+    Sourced from [ShutterStock] Standard license Included:
+        Limited usage in print, advertising, and packaging. Unlimited web distribution.
     
-      
+    
 
+[NOVODIASTOCK]: https://www.shutterstock.com/g/NOVO+DIA  
 [Yelp]: https://www.yelp.com/
 [Shutterstock]: https://www.shutterstock.com/
 [Canva]: https://www.canva.com/

@@ -105,16 +105,13 @@ code {
 }
 
 /* Home */
-.home-img {
-  width:500px;
-}
-
 .center-bttn {
   margin-right: 200px;
   text-align: right;
 }
 
 .center-img {
+  border-radius: 5px;
   display: block;
   margin-left: 100px;
   margin-top: 60px;
@@ -122,9 +119,22 @@ code {
 }
 
 .center-txt {
+  font-size: 24px;
   font-weight:400;
-  margin-top: 60px;
-  margin-right: 100px;
+  line-height: 37px;
+  margin-top:40px;
+  margin-left: 15px;
+}
+
+.center-block {
+  background-color:#414145;
+  border-radius: 20px;
+  display: block;
+  margin-top: 78px;
+  max-height: 583px;
+  width: 550px;
+  /* border: 3px solid #34a5a5; */
+  padding: 10px;
 }
 
 .header-img {
@@ -139,6 +149,33 @@ code {
 .header-text {
   font-weight:500;
   margin-left: 100px;
+}
+
+.home-img {
+  border-radius: 10px;
+  display: block;
+  margin-left: 100px;
+  width: 500px;
+}
+
+.home-txt {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 37px;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.home-block {
+  background-color: #414145;
+  border-radius: 20px;
+  display: block;
+  margin-top: 78px;
+  margin-left: 100px;
+  max-height: 583px;
+  width: 550px;
+  /* border: 3px solid #34a5a5; */
+  padding: 10px;
 }
 
 .front-page {
@@ -387,19 +424,30 @@ code {
 .icons {
   display:inline-block;
   max-height: 25px;
-  margin: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 .icons-edit {
   display: inline-block;
   max-height: 25px;
-  margin: 10px;
-
+  /* margin: 10px; */
+  margin-left: 75px;
+  margin-top: 5px;
+}
+.icons-edit:hover {
+  cursor: pointer;
 }
 .icons-trash {
   display:inline-block;
   max-height: 25px;
-  margin: 10px;
+  /* margin: 10px; */
+  margin-left: 68px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.icons-trash:hover {
+  cursor: pointer;
 }
 .icons:hover {
   cursor: pointer;
@@ -438,6 +486,7 @@ code {
 .comments-num {
   color: #363639;
   display: inline-block;
+  padding: 2px;
 }
 
 .edit-I {
