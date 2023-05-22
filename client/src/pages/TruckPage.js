@@ -94,32 +94,43 @@ const TruckPage = () => {
       <div className="truck-image">
         <img src={truck.image} alt={truck.name} className="truck-pic" />
       </div>
-      <div className="truck-info-">
-        <h1 className="info-txt">{truck.name}</h1>{" "}
-        <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
-          <img
-            src="https://i.imgur.com/B5PO9U1.png"
-            className="yelp-icon"
-            alt="yelp link"
-          />
-        </a>
-        <h2 className="info-sub-txt">
-          {truck.city}, {truck.state}
-        </h2>
-        <h2 className="info-sub-txt">{truck.cuisine}</h2>
-        { !isMyFav ?
-        (<form onSubmit={addFavorite}>
-          <button className="tk-bttn" type="submit">♡</button>
-        </form>) : (<form onSubmit={deleteFavorite}>
-          <button className="tk-bttn" type="submit">♥</button>
-        </form>)}
-        <button onClick={toggleForm} className="tk-bttn">
-          {showForm ? "Cancel" : "Share Visit"}
-        </button>
+      <div className="truck-info">
+        <div className="tk-profile">
+          <h1 className="info-txt">{truck.name}</h1>{" "}
+          <a href={truck.yelp} target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://i.imgur.com/B5PO9U1.png"
+              className="yelp-icon"
+              alt="yelp link"
+            />
+          </a>
+          <h2 className="info-sub-txt">
+            {truck.city}, {truck.state}
+          </h2>
+          <h2 className="info-sub-txt">{truck.cuisine}</h2>
+          <button onClick={toggleForm} className="tk2-bttn">
+            {showForm ? "Cancel" : "Share Visit"}
+          </button>
+        </div>
+        <div className="tk-buttons">
+          {!isMyFav ? (
+            <form onSubmit={addFavorite}>
+              <button className="tk-bttn" type="submit">
+                ♡
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={deleteFavorite}>
+              <button className="tk-bttn" type="submit">
+                ♥
+              </button>
+            </form>
+          )}
+        </div>
       </div>
       {showForm ? (
-        <div className="truck-visits">
-          <h1 className="tk-visit-txt">Share Your Visit: </h1>
+        <div>
+          <h1 className="info-txt">Share Your Visit: </h1>
           <VisitForm
             truck={truck}
             toggleForm={toggleForm}
@@ -127,8 +138,8 @@ const TruckPage = () => {
           />
         </div>
       ) : (
-        <div className="truck-visits">
-          <h1 className="tk-visit-txt">
+        <div>
+          <h1 className="info-txt">
             {visits.length === 0 ? "Be the First to Visit!" : "Nosh snaps"}
           </h1>
           <div className="card-container">

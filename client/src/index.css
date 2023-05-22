@@ -105,8 +105,6 @@ code {
 }
 
 
-
-
 /* Profile --------------------------------------------*/
 
 .profile-layout {
@@ -196,6 +194,7 @@ code {
 
  .post-count {
    grid-area: post-count;
+   font-weight: 300;
  }
 
  .badge {
@@ -212,6 +211,7 @@ code {
 
  .since {
    grid-area: since;
+   font-weight: 300;
  }
  
 
@@ -388,7 +388,10 @@ code {
 /* Trucks page------------------------------------------- */
  .trucks-title {
   text-align: center;
+  font-size: 50px;
+  font-weight: 400;
   margin: 20px;
+  margin-top: 50px;
  }
 
  .trucks-sub-title {
@@ -451,12 +454,11 @@ code {
   grid-auto-flow: column dense;
   grid-template-areas:
     "truck-image"
-    "truck-info-"
-    "truck-visits";
+    "truck-info"
 }
 
 .truck-image {
-  background-color: black;
+  background-color:#28282a;
   grid-area: truck-image;
 }
 
@@ -466,15 +468,28 @@ code {
   object-fit: contain;
 }
 
-.truck-info- {
-  grid-area: truck-info-;
+.truck-info {display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "tk-profile tk-profile tk-buttons tk-buttons";
+  grid-area: truck-info;
+}
+
+.tk-profile {
+  grid-area: tk-profile;
+}
+
+.tk-buttons {
+  grid-area: tk-buttons;
 }
 
 .info-txt {
   color: #f4f4f4;
   font-weight: 600;
   font-size: 40px;
-  margin-left: 100px;
+  margin-left: 130px;
   margin-bottom: 5px;
   text-align: left;
   display: inline-block;
@@ -489,15 +504,11 @@ code {
 .info-sub-txt {
   color:#f4f4f4;
   font-weight: 300;
-  margin-left: 100px;
+  margin-left: 130px;
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
-.truck-visits {
-  grid-area: truck-visits;
- 
-}
 
 .tk-visit-txt {
   color:#f4f4f4;
@@ -513,31 +524,54 @@ code {
 }
 
 .tk-bttn {
-  background-color: #ed9e3d;
+  background-color: #e39537;
   border: none;
   border-radius: 6px;
-  color: white;
-  display: inline-block;
+  color:#f4f4f4;
   font-family: 'Poppins';
   font-weight: 600;
   font-size: 15px;
+  margin: 45px;
+  margin-left: 275px;
   width: 140px;
   height: 40px;
-  vertical-align: auto;
 }
   
 .tk-bttn:hover {
   background-color: rgb(237, 236, 236);
-  color: #309898;
+  color:#363639;
+  cursor: pointer;
+  font-weight: 400;
+  transition: .8s;
+}
+
+.tk2-bttn {
+  background-color: #e39537;
+  border: none;
+  border-radius: 6px;
+  color: #f4f4f4;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 15px;
+  margin: 40px;
+  margin-left:130px;
+  width: 140px;
+  height: 40px;
+}
+
+.tk2-bttn:hover {
+  background-color: rgb(237, 236, 236);
+  color: #363639;
   cursor: pointer;
   font-weight: 400;
   transition: .8s;
 }
 
 .visit-form-block {
+  background-color: #3f3f3f;
   border-radius: 10px;
-  display: block;
-  margin: auto;
+  margin-top: 30px;
+  margin-left: 130px;
   margin-bottom: 50px;
   width: 375px;
   border: 2px solid #309898;
@@ -571,7 +605,7 @@ code {
 
 /* FORMS GENERAL ------------------------------------ */
 .err {
-  color:#f4f4f4
+  color:#cf6b1a
 }
 
 .form-block {
@@ -580,15 +614,17 @@ code {
   margin: auto;
   margin-bottom: 50px;
   width: 375px;
-  border: 2px solid #309898;
+  border: 3px solid #34a5a5;
   padding: 10px 50px;
 }
 
+
+/* buttons */
 .bttn {
-  background-color: #ed9e3d;
+  background-color: #e39537;
   border: none;
   border-radius: 6px;
-  color: white;
+  color:#f4f4f4;
   display: inline-block;
   font-family: 'Poppins';
   font-weight: 600;
@@ -606,18 +642,56 @@ code {
   transition: .8s;
 }
 
+.pro-bttn {
+  background-color: #e39537;
+  border: none;
+  border-radius: 6px;
+  color: #f4f4f4;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 15px;
+  width: 140px;
+  height: 40px;
+  vertical-align: auto;
+}
+
+.pro-bttn:hover {
+  background-color: rgb(237, 236, 236);
+  color: #363639;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .8s;
+}
+
+
+
 /* SignIn SignOut -------------------------------------*/
 
 .line-link {
   cursor: pointer;
-  font-weight: bold;
   text-decoration: underline;
+}
+
+.line-link:hover {
+  color:#309898
 }
 
 .form-logo {
   width: 100%;
 }
 
+.form-block-sign {
+  background-color:#414145;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  width: 375px;
+  border: 2px solid #309898;
+  padding: 10px 50px;
+}
 
 
 

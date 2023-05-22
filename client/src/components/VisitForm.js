@@ -127,7 +127,7 @@ const VisitForm = ({ truck, toggleForm, addToVisits }) => {
         />
         <label className="visit-form-txt"> Do not share</label>
         <br />
-        <button className="tk-bttn" type="submit" disabled={disabled}>
+        <button className="bttn" type="submit" disabled={disabled}>
           Post Visit
         </button>
       </form>

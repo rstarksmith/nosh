@@ -73,6 +73,8 @@ const Profile = () => {
     setProfile(prevState => ({...prevState, tagline: editedTag }))
   }
 
+  const displayBadge = profile.visits.length >= 10
+
   return (
     <div className="profile-layout">
       {error && { error }}
@@ -92,19 +94,27 @@ const Profile = () => {
             <>
               <h3>{profile.tagline}</h3>
               <button className="bttn" onClick={clickHandler}>
-                update profile
+                Update Profile
               </button>
             </>
           )}
         </div>
         <div className="badges-con">
           <h2 className="posts">Posts</h2>
-          <div className='badge'>
-            <img
-              src="https://i.imgur.com/B5PO9U1.png"
-              className="badge-icon"
-              alt=""
-            />
+          <div className="badge">
+            {displayBadge ? (
+              <img
+                src="https://i.imgur.com/B5PO9U1.png"
+                className="badge-icon"
+                alt=""
+              />
+            ) : (
+              <img
+                src=""
+                className="badge-icon"
+                alt=""
+              />
+            )}
           </div>
           <h2 className="member">Nosher since</h2>
           <h2 className="post-count">{profile.visits.length}</h2>

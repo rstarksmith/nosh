@@ -23,7 +23,7 @@ const NoshBoard = () => {
   
   return (
     <div>
-      <h1>Nosh Board</h1>
+      <h1 className="trucks-title">Nosh Board</h1>
       {isLoading && <h2>Loading...</h2>}
       <div className="card-container">
         <VisitList visits={visits}  />

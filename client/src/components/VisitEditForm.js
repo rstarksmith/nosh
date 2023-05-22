@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useAuth } from '../contexts/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 
 const VisitEditForm = ({ visit, toggleForm, editVisits }) => {
   const [rating, setRating] = useState(visit.rating);
   const [caption, setCaption] = useState(visit.caption);
   const [exclusive, setExclusive] = useState(false);
   const [errors, setErrors] = useState(null)
-  const { user } = useAuth()
+  // const { user } = useAuth()
 
 
   const handleEdit = (e) => {

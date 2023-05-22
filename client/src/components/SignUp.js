@@ -89,7 +89,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="form-block">
+      <div className="form-block-sign">
         <img
           src="https://i.imgur.com/StHLNbR.png"
           alt="nosh.up logo"

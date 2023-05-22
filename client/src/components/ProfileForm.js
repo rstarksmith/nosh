@@ -43,9 +43,9 @@ const ProfileForm = ({ profile, clickHandler, handleTagEdit }) => {
           placeholder={`${profile.tagline}...`}
           className='profile-input'
         />
-        <button className="bttn" type="submit">update</button>
+        <button className="pro-bttn" type="submit">Update</button>
       </form>
-       <button onClick={clickHandler}className='bttn' >X</button>
+       <button onClick={clickHandler}className='pro-bttn' >X</button>
       {errors
         ? Object.entries(errors).map(([key, value]) => (
             <p className="err" key={value}>
