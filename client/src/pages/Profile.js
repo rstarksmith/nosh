@@ -102,17 +102,17 @@ const Profile = () => {
         <div className="badges-con">
           <h2 className="posts">Posts</h2>
           <div className="badge">
-            {displayBadge ? (
+            {!displayBadge ? (
               <img
-                src="https://i.imgur.com/B5PO9U1.png"
+                src="https://i.imgur.com/5Me8rZ4.png"
                 className="badge-icon"
-                alt=""
+                alt="badge for new members"
               />
             ) : (
               <img
-                src=""
+                src="https://i.imgur.com/QVXxNnO.png"
                 className="badge-icon"
-                alt=""
+                alt="10 visits down badge"
               />
             )}
           </div>

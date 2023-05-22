@@ -1,9 +1,9 @@
 
-the ultimate photo-sharing platform for Texas food truck enthusiasts!
+The ultimate photo-sharing platform for Texas food truck enthusiasts!
 Show off your favorite meals from the vibrant food truck scene across the Lone Star State. From Austin to Houston, Fort Worth to Dallas, 
 share the flavors that make Texas cuisine legendary!
 
-It's a community of passionate food lovers who appreciate the artistry and flavor of Texan food. 
+
 Engage with fellow foodies by adding comments
 Snap and Share: Capture your favorite Texas food truck moments
 Comments: Engage with the community by adding comments 
