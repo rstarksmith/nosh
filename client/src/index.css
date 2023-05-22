@@ -116,9 +116,15 @@ code {
 
 .center-img {
   display: block;
-  margin-left: 130px;
-  margin-top: 0px;
+  margin-left: 100px;
+  margin-top: 60px;
   width: 500px;
+}
+
+.center-txt {
+  font-weight:400;
+  margin-top: 60px;
+  margin-right: 100px;
 }
 
 .header-img {
@@ -126,14 +132,47 @@ code {
   display: block;
   margin: auto;
   margin-bottom: 80px;
-  margin-top: 50px;
+  margin-top: 80px;
   width: 100%;
 }
 
 .header-text {
   font-weight:500;
   margin-left: 100px;
+}
 
+.front-page {
+  display: grid;
+  grid-auto-flow: column dense;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.3fr 0.8fr 0.9fr;
+  gap: 10px 0px;
+  grid-template-areas:
+    "infographic text-area"
+    "text-area-2 photo-area"
+    "footer footer";
+}
+
+.infographic {
+  grid-area: infographic;
+}
+
+.text-area {
+  grid-area: text-area;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.photo-area {
+  grid-area: photo-area;
+}
+
+.text-area-2 {
+  grid-area: text-area-2;
 }
 
 

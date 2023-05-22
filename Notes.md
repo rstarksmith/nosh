@@ -23,3 +23,16 @@ Active Storage --
  // 1. change image to base64 string
   // 2. Formdata
   // 3. Direct upload 
+
+
+
+    <img
+            className="home-img"
+            src="https://i.imgur.com/MHZRPfL.png"
+            alt="home infographic"
+          />
+          <img
+            className="home-img"
+            src="https://i.imgur.com/b4A7SWx.jpg"
+            alt="home infographic"
+          />
