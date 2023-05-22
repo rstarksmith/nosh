@@ -139,7 +139,7 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
                       src="https://i.imgur.com/gu6WPiM.png"
                       alt="edit"
                       onClick={toggleForm}
-                      className="icons"
+                      className="icons-edit"
                     />
                   </div>
                   <div className="delete-i">
@@ -147,7 +147,7 @@ const VisitCard = ({ visit, editable, removeVisit, editVisits }) => {
                       src="https://i.imgur.com/EmzBZP9.png"
                       alt="delete"
                       onClick={handleDelete}
-                      className="icons"
+                      className="icons-trash"
                     />
                   </div>
                 </>

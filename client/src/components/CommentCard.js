@@ -21,8 +21,13 @@ const CommentCard = ({ comment, deleteComment }) => {
   if (error) return <h1>{error}</h1>
   return (
     <div>
-      <p className="comments-txt"> 
-        {comment.commentor} {comment.reply}{" "}{user.id === comment.user_id && (<span onClick={handleDeleteComment} className="del-comment">✕</span>)}
+      <p className="comments-txt">
+        <span className="comments-span">{comment.commentor}</span> {comment.reply}{" "}
+        {user.id === comment.user_id && (
+          <span onClick={handleDeleteComment} className="del-comment">
+            ✕
+          </span>
+        )}
       </p>
     </div>
   );

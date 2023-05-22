@@ -45,7 +45,7 @@ const CommentForm = ({ visit, addComment }) => {
       </form>
       {errors
         ? Object.entries(errors).map(([key, value]) => (
-            <p className="err" key={value}>
+            <p className="comments-err" key={value}>
               ⚠︎ {key} {value}
             </p>
           ))

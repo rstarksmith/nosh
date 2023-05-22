@@ -125,7 +125,7 @@ code {
 .profile-con {
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.5fr 1.2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -175,7 +175,6 @@ code {
 .profile-bttn {
 
 }
-
 
 .badges-con {
   display: grid;
@@ -255,7 +254,7 @@ code {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:space-evenly;
   margin-left: 30px;
   margin-right: 30px;
 }
@@ -318,6 +317,17 @@ code {
   margin: 10px;
 }
 
+.icons-edit {
+  display: inline-block;
+  max-height: 25px;
+  margin: 10px;
+
+}
+.icons-trash {
+  display:inline-block;
+  max-height: 25px;
+  margin: 10px;
+}
 .icons:hover {
   cursor: pointer;
 }
@@ -325,9 +335,17 @@ code {
 .comments-txt {
   color:#363639;
 }
+.comments-span {
+  color:#363639;
+  font-weight: 500;
+  margin-right: 5px;
+}
 .del-comment {
   font-size: smaller;
   font-weight: 400;
+}
+.comments-err {
+  color:#363639;
 }
 
 .icons-container {
@@ -386,8 +404,6 @@ code {
     border: 2px solid #309898;
     padding: 10px 50px;
   }
-
- 
 
 /* TruckCards =============================================*/
 
